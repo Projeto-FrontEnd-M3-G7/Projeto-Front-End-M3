@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-secondary: #FF0000;
     --grey-100: #D5CEFC;
     --grey-50: #F1F3F5;
+    --grey-25: #F8F8F8;
     --grey-0: #FFFFFF;
     --fontBlack: #000000;
     --background_header_footer: #1A191F;
@@ -27,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     --title2: 3.0rem;
     --title3: 2.4rem;
     --title4: 2.2rem;
-    --title5: 2.0rem;
+    --text1: 2.0rem;
     --headline: 1.8rem;
     --text_input: 1.8rem;
     --text_card: 1.6rem;
@@ -40,11 +41,12 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     font-family: "Inter", sans-serif;
     background-image: url('src/assets/img/imgBackground.jpg');
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
   }
 
   button, Link {
