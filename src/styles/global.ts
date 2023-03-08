@@ -7,13 +7,20 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     scroll-behavior: smooth;
     list-style: none;
+
+  }
+  dialog{
+    display: unset;
+    position: unset;
+
+    border: none;
   }
 
   :root {
     --color-primary: #8637A1;
     --color-secondary: #FF0000;
     --grey-100: #D5CEFC;
-    --grey-50: #F1F3F5;
+    --grey-50: rgba(255, 255, 255, 0.8);
     --grey-25: #F8F8F8;
     --grey-0: #FFFFFF;
     --fontBlack: #000000;
@@ -40,19 +47,15 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    width: 100vw;
-    height: 100%;
     font-family: "Inter", sans-serif;
     background-image: url('src/assets/img/imgBackground.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: center;
   }
 
   button, Link {
     cursor: pointer;
-    border-radius: 20px;
-    border-color: var(--color-primary);
   }
 
   @media (min-width: 769px) {

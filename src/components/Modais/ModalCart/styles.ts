@@ -1,0 +1,60 @@
+import styled from "styled-components";
+
+export const StyledCarDiv = styled.div`
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: rgba(51, 51, 51, 0.5);
+  z-index: 1001;
+
+  dialog {
+    width: 100%;
+    max-width: 400px;
+
+    border-radius: 10px;
+
+    background-color: #ffffff;
+
+    .headerModal {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 10px;
+      border-radius: 8px 8px 0 0;
+      background-color: var(--color-primary);
+
+      h3 {
+        font-family: "Inter", sans-serif;
+        font-size: var(--headline);
+        font-weight: 500;
+        color: var(--grey-0);
+      }
+      span {
+        font-family: "Inter", sans-serif;
+        font-size: var(--headline);
+        color: rgba(255, 255, 255, 0.5);
+
+        cursor: pointer;
+        transition: 0.3s;
+
+        :hover {
+          transform: scale(1.3);
+        }
+      }
+    }
+    .cartBox {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      @media (max-width: 450px) {
+        padding: 15px;
+      }
+    }
+  }
+`;
