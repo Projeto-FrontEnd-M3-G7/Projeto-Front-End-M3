@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
   width: 100%;
-  height: 87px;
+  height: 60px;
   background-color: var(--background_header_footer);
   opacity: 80%;
-  padding-left: 140px;
-  padding-right: 140px;
+  padding-left: 3%;
+  padding-right: 3%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,12 +20,23 @@ export const StyledFooter = styled.footer`
 
   .boxContact {
     display: flex;
-    gap: 12px;
-    font-size: var(--text1);
+    gap: 6px;
+    font-size: var(--text_card);
     color: var(--grey-25);
   }
 
   .btnLogin {
     background-color: black;
+  }
+
+  @media (min-width: 769px) {
+    height: 87px;
+    padding-left: 9.72%;
+    padding-right: 9.72%;
+
+    .boxContact {
+      gap: 12px;
+      font-size: var(--text1);
+    }
   }
 `;
