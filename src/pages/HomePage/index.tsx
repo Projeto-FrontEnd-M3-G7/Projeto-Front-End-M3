@@ -2,13 +2,14 @@ import { StyledMain } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Categories } from "../../components/Categories";
+import { ProductList } from "../../components/ProductList";
 
 export const HomePage = () => {
   console.log("deletar depois");
 
   return (
     <>
-      <Header />
+      <Header labelBtn1="Login" labelBtn2="Cadastrar" />
       <StyledMain>
         <div className="boxMain">
           <Categories />
@@ -16,8 +17,8 @@ export const HomePage = () => {
             <div className="boxTitle">
               <h2>Ofertas em Destaques</h2>
             </div>
-            <div>
-              <h2>Produtos... buscar da API</h2>
+            <div className="boxVitrine">
+              <ProductList />
             </div>
           </section>
         </div>
