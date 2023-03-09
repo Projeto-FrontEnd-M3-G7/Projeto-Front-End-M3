@@ -10,7 +10,7 @@ export const AdminPage = () => (
         <select name="Categories" id="Categories">
           <option value="1">Selecionar por Categoria</option>
         </select>
-        <button>+ Criar</button>
+        <button type="button">+ Criar</button>
       </div>
       <ul>
         <li>
@@ -39,16 +39,16 @@ export const AdminPage = () => (
             </div>
           </div>
           <aside>
-            <button type="submit">
+            <button type="button">
               <img src="src/assets/img/icons8-edit.png" alt="icon-edit.png" />
             </button>
-            <button type="submit">
+            <button type="button">
               <img
                 src="src/assets/img/icons8-gráfico-combinado-50.png"
                 alt="icon-view.png"
               />
             </button>
-            <button type="submit" className="btn-delete">
+            <button type="button" className="btn-delete">
               <img
                 src="src/assets/img/icons8-excluir-lixeira.png"
                 alt="icon-delete.png"
