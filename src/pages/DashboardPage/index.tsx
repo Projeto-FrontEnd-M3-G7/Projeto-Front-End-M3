@@ -1,10 +1,12 @@
+import { DivContainer } from "./style";
 import { CardMyProducts } from "../../components/MyProducts";
 import { Header } from "../../components/Header";
-import { DivContainer } from "./style";
+
+import editImage from "../../assets/img/icons8-edit.png";
 
 export const Dashboard = () => (
   <DivContainer>
-    <Header />
+    <Header labelBtn1="Voltar" labelBtn2="Sair" />
     <main>
       <section className="user">
         <div className="userInfos">
@@ -17,14 +19,16 @@ export const Dashboard = () => (
         </div>
 
         <div className="editUser">
-          <button>Editar</button>
+          <button type="button">
+            <img src={editImage} alt="Editar" />
+          </button>
         </div>
       </section>
-      <aside className="myProducts">
+      <section className="myProducts">
         <h2 className="myProducts__title">Controle de produtos Ofertados</h2>
 
         <CardMyProducts />
-      </aside>
+      </section>
     </main>
   </DivContainer>
 );
