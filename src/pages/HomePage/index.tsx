@@ -12,7 +12,9 @@ export const HomePage = () => {
       <Header labelBtn1="Login" labelBtn2="Cadastrar" />
       <StyledMain>
         <div className="boxMain">
-          <Categories />
+          <div className="containerCategories">
+            <Categories />
+          </div>
           <section>
             <div className="boxTitle">
               <h2>Ofertas em Destaques</h2>

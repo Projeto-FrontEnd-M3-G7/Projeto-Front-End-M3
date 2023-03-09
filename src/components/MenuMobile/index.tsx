@@ -26,7 +26,7 @@ export const MenuMobile = ({ setShowMenu }: iProps) => {
       >
         {btnMenu === false ? (
           <img
-            src="./src/assets/img/icon_menu.svg"
+            src="./src/assets/img/icons8-icon_menu.png"
             alt="Menu de navegaçãoLogo da empresa"
           />
         ) : (
