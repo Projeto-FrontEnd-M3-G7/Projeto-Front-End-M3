@@ -35,13 +35,13 @@ export const ModalLogin = ({
             placeholder="Digite o seu E-mail"
             register={register("email")}
           />
-          {errors.email?.message}
+          <p className="error"> {errors.email?.message} </p>
           <Input
             type="password"
             placeholder="digite a sua senha"
             register={register("password")}
           />
-          {errors.password?.message}
+          <p className="error"> {errors.password?.message} </p>
           <button type="submit">login</button>
           <span>ou</span>
           <button
