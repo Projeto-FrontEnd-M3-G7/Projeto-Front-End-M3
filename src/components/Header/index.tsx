@@ -4,6 +4,7 @@ import { BtnLogin } from "../BtnLogin";
 import { BtnRegister } from "../BtnRegister";
 import { MenuMobile } from "../MenuMobile";
 import { NavBar } from "../MenuMobile/NavBar";
+import { Categories } from "../Categories";
 
 export interface iBtnHeader {
   labelBtn1: string;
@@ -29,6 +30,7 @@ export const Header = ({ labelBtn1, labelBtn2 }: iBtnHeader) => {
       </div>
       <div className={showMenu}>
         <NavBar />
+        {showMenu === "showMenu" && <Categories />}
       </div>
     </StyledHeader>
   );

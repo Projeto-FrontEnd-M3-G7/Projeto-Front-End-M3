@@ -6,8 +6,14 @@ export const StyledMain = styled.main`
   padding-left: 10px;
   padding-right: 10px;
 
+  .boxMain {
+    .containerCategories {
+      display: none;
+    }
+  }
+
   section {
-    // margin: 10px auto;
+    margin: 10px auto;
     width: 95%;
     max-height: 552px;
     padding-top: 5px;
@@ -46,9 +52,14 @@ export const StyledMain = styled.main`
 
     .boxMain {
       display: flex;
+
+      .containerCategories {
+        display: flex;
+      }
     }
 
     section {
+      margin: 0;
       width: 1109px;
       max-height: 770px;
 
