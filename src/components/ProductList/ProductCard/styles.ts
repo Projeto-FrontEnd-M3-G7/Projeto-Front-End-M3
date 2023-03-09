@@ -16,7 +16,7 @@ export const StyledLi = styled.li`
 
   :hover,
   :focus {
-    transform: translateX(5px) scale(1.1);
+    transform: translateX(3px) scale(1.03);
     filter: brightness(80%);
   }
 

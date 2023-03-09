@@ -63,6 +63,10 @@ export const StyledAside = styled.aside`
     margin-right: 28px;
     margin-top: 0;
 
+    ul {
+      overflow: hidden;
+    }
+
     h2 {
       margin-bottom: 36.06px;
     }
