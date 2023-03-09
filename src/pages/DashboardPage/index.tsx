@@ -2,7 +2,7 @@ import { CardMyProducts } from '../../components/MyProducts';
 import { Header } from '../../components/Header';
 import { DivContainer } from './style';
 
-import edit from '../../assets/img/icons8-edit.png';
+import editImage from '../../assets/img/icons8-edit.png';
 
 export const Dashboard = () => {
     return (
@@ -21,7 +21,7 @@ export const Dashboard = () => {
 
                     <div className="editUser">
                         <button>
-                            <img src={edit} alt="Editar" />
+                            <img src={editImage} alt="Editar" />
                         </button>
                     </div>
                 </section>
