@@ -61,9 +61,13 @@ export const StyledBoxDiv = styled.div`
         font-family: "Inter", sans-serif;
         font-size: var(--text_card);
         font-weight: 500;
-
-        margin: 10px 0;
       }
+
+      .error {
+        font-size: 1.4rem;
+        color: var(--color-secondary);
+      }
+
       span {
         text-align: center;
         font-family: "Inter", sans-serif;

@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { StyledBoxDiv } from "../styles";
 import { Input } from "../../Input";
@@ -50,25 +49,25 @@ export const ModalRegister = ({
             placeholder="Digite o seu nome"
             register={register("name")}
           />
-          {errors.name?.message}
+          <p className="error"> {errors.name?.message} </p>
           <Input
             type="text"
             placeholder="Digite o seu E-mail"
             register={register("email")}
           />
-          {errors.email?.message}
+          <p className="error"> {errors.email?.message} </p>
           <Input
             type="password"
             placeholder="Crie uma senha de usuário"
             register={register("password")}
           />
-          {errors.password?.message}
+          <p className="error"> {errors.password?.message} </p>
           <Input
             type="password"
             placeholder="Confirme sua senha"
             register={register("confirmPassword")}
           />
-          {errors.confirmPassword?.message}
+          <p className="error"> {errors.confirmPassword?.message} </p>
           <Select {...register("colaborador")}>
             <option value="true">Deseja me tornar um vendedor</option>
             <option value="false">Deseja ser consumidor</option>
