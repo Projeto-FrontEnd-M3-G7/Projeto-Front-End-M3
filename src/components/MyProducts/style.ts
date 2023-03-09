@@ -1,21 +1,25 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.ul`
-    background-color: aqua;
+    background-color: var(--grey-100);
 
     margin: auto;
     padding: 15px;
 
     width: 100%;
-    display: grid;
+    display: flex;
     grid-template-columns: auto auto auto;
     gap: 35px;
 
-    li {
-        border: 1px solid;
-        width: auto;
-        max-width: 300px;
-        padding: 10px;
-        background-color: #e1dedd;
+    overflow-y: auto;
+
+    @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    @media (min-width: 1008px) {
+        display: grid;
+        grid-template-columns: auto auto auto;
     }
 `;
