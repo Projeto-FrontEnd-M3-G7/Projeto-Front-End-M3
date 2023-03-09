@@ -1,7 +1,7 @@
 import { StyledButtonContainer, StyledLi } from "./styles";
 import { BtnShop } from "../../BtnShop";
 
-export const ProductCard = ({ children, showButtons }) => {
+export const ProductCard = ({ showButtons }) => {
   console.log("aplicar a lógica...");
 
   return (
@@ -10,7 +10,6 @@ export const ProductCard = ({ children, showButtons }) => {
         <img src="./src/assets/img/jaqueta 2.svg" alt="imagem do produto" />
         <p>Descrição do Produto Lorem ipsum dolor sit amet consectetur</p>
         <span>R$ 180,00</span>
-        {children && children}
       </StyledLi>
       {showButtons && (
         <div>
