@@ -1,13 +1,23 @@
-import { StyledLi } from "./styles";
+import { StyledButtonContainer, StyledLi } from "./styles";
+import { BtnShop } from "../../BtnShop";
 
-export const ProductCard = () => {
+export const ProductCard = ({ children, showButtons }) => {
   console.log("aplicar a lógica...");
 
   return (
-    <StyledLi>
-      <img src="./src/assets/img/jaqueta 2.svg" alt="imagem do produto" />
-      <p>Descrição do Produto Lorem ipsum dolor sit amet consectetur</p>
-      <span>R$ 180,00</span>
-    </StyledLi>
+    <StyledButtonContainer>
+      <StyledLi>
+        <img src="./src/assets/img/jaqueta 2.svg" alt="imagem do produto" />
+        <p>Descrição do Produto Lorem ipsum dolor sit amet consectetur</p>
+        <span>R$ 180,00</span>
+        {children && children}
+      </StyledLi>
+      {showButtons && (
+        <div>
+          <BtnShop text="+ Saiba mais" />
+          <BtnShop text="Adicionar" />
+        </div>
+      )}
+    </StyledButtonContainer>
   );
 };
