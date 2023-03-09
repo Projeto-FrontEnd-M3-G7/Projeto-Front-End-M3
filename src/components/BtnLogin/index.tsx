@@ -1,5 +1,9 @@
 import { StyledBtn } from "./styles";
 
-export const BtnLogin = ({ children }) => (
+interface iBtnProps {
+  children: string;
+}
+
+export const BtnLogin = ({ children }: iBtnProps) => (
   <StyledBtn type="button">{children}</StyledBtn>
 );

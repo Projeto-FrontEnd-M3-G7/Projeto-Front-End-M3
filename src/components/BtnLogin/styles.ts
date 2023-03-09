@@ -9,6 +9,9 @@ export const StyledBtn = styled.button`
   font-weight: 700;
   margin-top: 13.7px;
 
+  border-radius: 20px;
+  border-color: var(--color-primary);
+
   @media (min-width: 769px) {
     .boxNav {
       width: 142px;

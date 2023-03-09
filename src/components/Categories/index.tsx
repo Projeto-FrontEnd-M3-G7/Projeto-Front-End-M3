@@ -8,16 +8,18 @@ export const Categories = () => {
       <h2>Categorias</h2>
       <input type="text" placeholder="buscar categoria" />
       <img src="./src/assets/img/icons8-pesquisar.png" alt="botão de busca" />
-      <p>Eletrônicos</p>
-      <p>Calçados</p>
-      <p>Roupas</p>
-      <p>Eletrodomésticos</p>
-      <p>Informática</p>
-      <p>Eletrônicos</p>
-      <p>Calçados</p>
-      <p>Roupas</p>
-      <p>Eletrodomésticos</p>
-      <p>Informática</p>
+      <ul>
+        <li>Eletrônicos</li>
+        <li>Calçados</li>
+        <li>Roupas</li>
+        <li>Eletrodomésticos</li>
+        <li>Informática</li>
+        <li>Eletrônicos</li>
+        <li>Calçados</li>
+        <li>Roupas</li>
+        <li>Eletrodomésticos</li>
+        <li>Informática</li>
+      </ul>
     </StyledAside>
   );
 };

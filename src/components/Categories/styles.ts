@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const StyledAside = styled.aside`
-  background-color: var(--color-primary);
-  opacity: 80%;
+  display: none;
 
   @media (min-width: 769px) {
+    background-color: var(--color-primary);
+    opacity: 80%;
     width: 259px;
     height: 618px;
     padding: 20px;
@@ -12,9 +13,26 @@ export const StyledAside = styled.aside`
     color: var(--grey-0);
     display: flex;
     flex-direction: column;
-    gap: 11.64px;
     border-radius: var(--radius-input);
     margin-right: 28px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 11.64px;
+
+      li {
+        transition: transform 1s;
+        transform: translateX(0) scale(1);
+        cursor: pointer;
+
+        :hover,
+        :focus {
+          transform: translateX(20px) scale(1.2);
+          filter: brightness(80%);
+        }
+      }
+    }
 
     h2 {
       font-size: var(--title4);
@@ -37,7 +55,7 @@ export const StyledAside = styled.aside`
       height: 22px;
       object-fit: contain;
       position: absolute;
-      top: 249px;
+      top: 240px;
       left: 219px;
     }
   }
