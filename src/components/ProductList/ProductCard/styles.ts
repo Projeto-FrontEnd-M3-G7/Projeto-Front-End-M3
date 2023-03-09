@@ -70,3 +70,17 @@ export const StyledLi = styled.li`
     }
   }
 `;
+export const StyledButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+`;

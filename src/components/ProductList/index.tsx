@@ -3,7 +3,7 @@ import { StyledUl } from "./styles";
 import { ProductCard } from "./ProductCard";
 import { ProductContext } from "../../providers/ProductContext/ProductContext";
 
-export const ProductList = () => {
+export const ProductList = ({ showButtons }) => {
   const { searchProducts, loading } = useContext(ProductContext);
 
   return (
@@ -14,7 +14,11 @@ export const ProductList = () => {
         </div>
       ) : (
         searchProducts?.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            showButtons={showButtons}
+          />
         ))
       )}
     </StyledUl>

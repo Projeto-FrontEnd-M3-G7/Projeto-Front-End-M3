@@ -1,5 +1,9 @@
-import { StyledBtn } from "./styles";
+import { StyledBtn } from './styles';
 
-export const BtnRegister = ({ children }) => (
-  <StyledBtn type="button">{children}</StyledBtn>
+interface iBtnProps {
+    children: string;
+}
+
+export const BtnRegister = ({ children }: iBtnProps) => (
+    <StyledBtn type="button">{children}</StyledBtn>
 );
