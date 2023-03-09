@@ -9,9 +9,16 @@ import { Categories } from "../Categories";
 export interface iBtnHeader {
   labelBtn1: string;
   labelBtn2: string;
+  setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOpenModalRegister: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Header = ({ labelBtn1, labelBtn2 }: iBtnHeader) => {
+export const Header = ({
+  labelBtn1,
+  labelBtn2,
+  setIsOpenModalLogin,
+  setIsOpenModalRegister,
+}: iBtnHeader) => {
   const [showMenu, setShowMenu] = useState<string>("hidden");
 
   return (
@@ -21,8 +28,18 @@ export const Header = ({ labelBtn1, labelBtn2 }: iBtnHeader) => {
           <img src="./src/assets/img/editLogo.png" alt="Logo da empresa" />
         </div>
         <div className="boxNav">
-          <BtnLogin>{labelBtn1}</BtnLogin>
-          <BtnRegister>{labelBtn2}</BtnRegister>
+          <BtnLogin
+            labelBtn1={labelBtn1}
+            setIsOpenModalLogin={setIsOpenModalLogin}
+          >
+            {labelBtn1}
+          </BtnLogin>
+          <BtnRegister
+            labelBtn2={labelBtn2}
+            setIsOpenModalRegister={setIsOpenModalRegister}
+          >
+            {labelBtn2}
+          </BtnRegister>
         </div>
         <div className="boxNavIcon">
           <MenuMobile setShowMenu={setShowMenu} />
