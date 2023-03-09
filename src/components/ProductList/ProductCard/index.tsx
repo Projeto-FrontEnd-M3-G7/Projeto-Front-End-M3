@@ -1,13 +1,14 @@
 import { StyledLi } from "./styles";
+import { iProduct } from "../../../providers/ProductContext/@types";
 
-export const ProductCard = () => {
-  console.log("aplicar a lógica...");
+interface iProductsProps {
+  product: iProduct;
+}
 
-  return (
-    <StyledLi>
-      <img src="./src/assets/img/jaqueta 2.svg" alt="imagem do produto" />
-      <p>Descrição do Produto Lorem ipsum dolor sit amet consectetur</p>
-      <span>R$ 180,00</span>
-    </StyledLi>
-  );
-};
+export const ProductCard = ({ product }: iProductsProps) => (
+  <StyledLi>
+    <img src={product.img} alt={product.name} />
+    <p>{product.description}</p>
+    <span>R$ {product.sale_Value}</span>
+  </StyledLi>
+);

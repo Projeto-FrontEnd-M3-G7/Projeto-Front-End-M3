@@ -7,7 +7,7 @@ export const StyledLi = styled.li`
   flex-direction: column;
   align-items: center;
   border-radius: 50%;
-  background-color: var(--grey-50);
+  background-color: var(--grey-25);
   filter: drop-shadow(0px 5px 4px rgba(134, 55, 161, 0.89));
 
   transition: transform 1s;
@@ -23,8 +23,10 @@ export const StyledLi = styled.li`
   img {
     width: 111.76px;
     height: 73.13px;
-    margin-top: 10px;
-    object-fit: cover;
+    padding-top: 5px;
+    object-fit: contain;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
   }
 
   p {

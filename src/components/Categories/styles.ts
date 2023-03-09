@@ -79,5 +79,9 @@ export const StyledAside = styled.aside`
       top: 85px;
       left: 205px;
     }
+
+    button {
+      border: none;
+    }
   }
 `;

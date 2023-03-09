@@ -1,11 +1,18 @@
+import { useContext, useEffect } from "react";
 import { StyledMain } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Categories } from "../../components/Categories";
 import { ProductList } from "../../components/ProductList";
+import { ProductContext } from "../../providers/ProductContext/ProductContext";
 
 export const HomePage = () => {
-  console.log("deletar depois");
+  const { productsShop, categoriesProducts } = useContext(ProductContext);
+
+  useEffect(() => {
+    productsShop();
+    categoriesProducts();
+  }, []);
 
   return (
     <>
