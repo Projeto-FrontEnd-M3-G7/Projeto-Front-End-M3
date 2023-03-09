@@ -1,23 +1,28 @@
 import { StyledButtonContainer, StyledLi } from "./styles";
+import { iProduct } from "../../../providers/ProductContext/@types";
 import { BtnShop } from "../../BtnShop";
 
-export const ProductCard = ({ children, showButtons }) => {
-  console.log("aplicar a lógica...");
+interface iProductsProps {
+  product: iProduct;
+}
 
-  return (
-    <StyledButtonContainer>
-      <StyledLi>
-        <img src="./src/assets/img/jaqueta 2.svg" alt="imagem do produto" />
-        <p>Descrição do Produto Lorem ipsum dolor sit amet consectetur</p>
-        <span>R$ 180,00</span>
-        {children && children}
-      </StyledLi>
-      {showButtons && (
-        <div>
-          <BtnShop text="+ Saiba mais" />
-          <BtnShop text="Adicionar" />
-        </div>
-      )}
-    </StyledButtonContainer>
-  );
-};
+export const ProductCard = ({
+  product,
+  showButtons,
+  children,
+}: iProductsProps) => (
+  <StyledButtonContainer>
+    <StyledLi>
+      <img src={product.img} alt={product.name} />
+      <p>{product.description}</p>
+      <span>R$ {product.sale_Value}</span>
+      {children && children}
+    </StyledLi>
+    {showButtons && (
+      <div>
+        <BtnShop text="+ Saiba mais" />
+        <BtnShop text="Adicionar" />
+      </div>
+    )}
+  </StyledButtonContainer>
+);

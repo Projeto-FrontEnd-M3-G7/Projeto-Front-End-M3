@@ -1,18 +1,26 @@
-import { ProductCard } from "./ProductCard";
+import { useContext } from "react";
 import { StyledUl } from "./styles";
+import { ProductCard } from "./ProductCard";
+import { ProductContext } from "../../providers/ProductContext/ProductContext";
 
 export const ProductList = ({ showButtons }) => {
-  console.log("aplicar a lógica, na ul inserir o loading e o map");
+  const { searchProducts, loading } = useContext(ProductContext);
 
   return (
     <StyledUl>
-      <ProductCard showButtons={showButtons} />
-      <ProductCard showButtons={showButtons} />
-      <ProductCard showButtons={showButtons} />
-      <ProductCard showButtons={showButtons} />
-      <ProductCard showButtons={showButtons} />
-      <ProductCard showButtons={showButtons} />
-      <ProductCard showButtons={showButtons} />
+      {loading ? (
+        <div className="boxLoading">
+          <img src="./src/assets/img/Spinner-1s-200px.svg" alt="Loading..." />
+        </div>
+      ) : (
+        searchProducts?.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            showButtons={showButtons}
+          />
+        ))
+      )}
     </StyledUl>
   );
 };
