@@ -33,10 +33,12 @@ export const StyledCarDiv = styled.div`
         font-family: "Inter", sans-serif;
         font-size: var(--title3);
       }
-      span {
+      .span {
         position: absolute;
         top: 0;
         right: 0;
+        background-color: var(--grey-0);
+        border: none;
 
         font-family: "Inter", sans-serif;
         font-size: 1.8rem;

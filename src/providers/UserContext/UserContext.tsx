@@ -8,6 +8,10 @@ export const UserContext = createContext({} as iUserContext);
 export const UserProvider = ({ children }: iProvidersProps) => {
   const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
   const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
+  const [isOpenModalControlPanel, setIsOpenModalControlPanel] = useState(false);
+  const [isOpenModalDeleteProduct, setIsOpenModalDeleteProduct] =
+    useState(false);
+
   return (
     <UserContext.Provider
       value={{
@@ -15,6 +19,10 @@ export const UserProvider = ({ children }: iProvidersProps) => {
         setIsOpenModalLogin,
         isOpenModalRegister,
         setIsOpenModalRegister,
+        isOpenModalControlPanel,
+        setIsOpenModalControlPanel,
+        isOpenModalDeleteProduct,
+        setIsOpenModalDeleteProduct,
       }}
     >
       {children}
