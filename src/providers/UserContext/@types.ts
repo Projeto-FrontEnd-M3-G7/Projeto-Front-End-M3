@@ -26,4 +26,6 @@ export interface iUserContext {
   setIsOpenModalDeleteProduct: React.Dispatch<React.SetStateAction<boolean>>;
   isOpenModalEditProduct: boolean;
   setIsOpenModalEditProduct: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenModalCreateProduct: boolean;
+  setIsOpenModalCreateProduct: React.Dispatch<React.SetStateAction<boolean>>;
 }

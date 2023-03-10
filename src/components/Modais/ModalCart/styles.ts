@@ -18,6 +18,19 @@ export const StyledCarDiv = styled.div`
 
     background-color: #ffffff;
 
+    animation: animacaoModal 0.5s;
+
+    @keyframes animacaoModal {
+      from {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
     .headerModal {
       position: relative;
       display: flex;
