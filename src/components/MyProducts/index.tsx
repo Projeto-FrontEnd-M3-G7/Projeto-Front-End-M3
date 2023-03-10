@@ -1,49 +1,12 @@
-import { CardContainer } from './style';
+import { CardContainer } from "./style";
+import { MyProdutsCard } from "../MyProductsCard";
 
-export const CardMyProducts = () => {
-    return (
-        <CardContainer>
-            <li>
-                <h3>Nome do produto</h3>
-                <p>Descrição do produto</p>
-                <p>Preço</p>
-            </li>
-
-            <li>
-                <h3>Nome do produto</h3>
-                <p>Descrição do produto</p>
-                <p>Preço</p>
-            </li>
-
-            <li>
-                <h3>Nome do produto</h3>
-                <p>Descrição do produto</p>
-                <p>Preço</p>
-            </li>
-
-            <li>
-                <h3>Nome do produto</h3>
-                <p>Descrição do produto</p>
-                <p>Preço</p>
-            </li>
-
-            <li>
-                <h3>Nome do produto</h3>
-                <p>Descrição do produto</p>
-                <p>Preço</p>
-            </li>
-
-            <li>
-                <h3>Nome do produto</h3>
-                <p>Descrição do produto</p>
-                <p>Preço</p>
-            </li>
-
-            <li>
-                <h3>Nome do produto</h3>
-                <p>Descrição do produto</p>
-                <p>Preço</p>
-            </li>
-        </CardContainer>
-    );
-};
+export const CardMyProducts = () => (
+  <CardContainer>
+    <MyProdutsCard />
+    <MyProdutsCard />
+    <MyProdutsCard />
+    <MyProdutsCard />
+    <MyProdutsCard />
+  </CardContainer>
+);

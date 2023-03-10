@@ -1,5 +1,12 @@
+import { UseFormRegisterReturn } from "react-hook-form";
 import { StyledInput } from "./styles";
 
-export const Input = () => (
-  <StyledInput type="text" placeholder="Seu Placeholder" />
+interface iPropsInput {
+  placeholder: string;
+  type: "text" | "password" | "email";
+  register: UseFormRegisterReturn<string>;
+}
+
+export const Input = ({ placeholder, type, register }: iPropsInput) => (
+  <StyledInput type={type} placeholder={placeholder} {...register} />
 );

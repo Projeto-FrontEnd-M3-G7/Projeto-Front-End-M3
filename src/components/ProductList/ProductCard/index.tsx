@@ -1,22 +1,38 @@
 import { StyledButtonContainer, StyledLi } from "./styles";
+import { iProduct } from "../../../providers/ProductContext/@types";
 import { BtnShop } from "../../BtnShop";
 
-export const ProductCard = ({ showButtons }) => {
-  console.log("aplicar a lógica...");
+interface iProductsProps {
+  product: iProduct;
+  setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  children: React.ReactNode;
+}
 
-  return (
-    <StyledButtonContainer>
-      <StyledLi>
-        <img src="./src/assets/img/jaqueta 2.svg" alt="imagem do produto" />
-        <p>Descrição do Produto Lorem ipsum dolor sit amet consectetur</p>
-        <span>R$ 180,00</span>
-      </StyledLi>
-      {showButtons && (
-        <div>
-          <BtnShop text="+ Saiba mais" />
-          <BtnShop text="Adicionar" />
-        </div>
-      )}
-    </StyledButtonContainer>
-  );
-};
+export const ProductCard = ({
+  product,
+  showButtons,
+  children,
+  setIsOpenModalLogin,
+}: iProductsProps) => (
+  <StyledButtonContainer>
+    <StyledLi>
+      <button
+        className="btnCard"
+        type="button"
+        onClick={() => setIsOpenModalLogin(true)}
+      >
+        <img src={product.img} alt={product.name} />
+        <p>{product.description}</p>
+        <span>R$ {product.sale_Value}</span>
+        {children && children}
+      </button>
+    </StyledLi>
+
+    {showButtons && (
+      <div>
+        <BtnShop text="+ Saiba mais" />
+        <BtnShop text="Adicionar" />
+      </div>
+    )}
+  </StyledButtonContainer>
+);

@@ -1,34 +1,34 @@
-import { CardMyProducts } from '../../components/MyProducts';
-import { Header } from '../../components/Header';
-import { DivContainer } from './style';
+import { DivContainer } from "./style";
+import { CardMyProducts } from "../../components/MyProducts";
+import { Header } from "../../components/Header";
 
-export const Dashboard = () => {
-    return (
-        <DivContainer>
-            <Header />
-            <main>
-                <section className="user">
-                    <div className="userInfos">
-                        <h2>NOME DO USUARIO</h2>
-                        <div className="userDados">
-                            <p>E-mail:</p>
-                            <p>Plano:</p>
-                            <p>DATA:</p>
-                        </div>
-                    </div>
+import editImage from "../../assets/img/icons8-edit.png";
 
-                    <div className="editUser">
-                        <button>Editar</button>
-                    </div>
-                </section>
-                <aside className="myProducts">
-                    <h2 className="myProducts__title">
-                        Controle de produtos Ofertados
-                    </h2>
+export const Dashboard = () => (
+  <DivContainer>
+    <Header labelBtn1="Voltar" labelBtn2="Sair" />
+    <main>
+      <section className="user">
+        <div className="userInfos">
+          <h2>NOME DO USUARIO</h2>
+          <div className="userDados">
+            <p>E-mail:</p>
+            <p>Plano:</p>
+            <p>DATA:</p>
+          </div>
+        </div>
 
-                    <CardMyProducts />
-                </aside>
-            </main>
-        </DivContainer>
-    );
-};
+        <div className="editUser">
+          <button type="button">
+            <img src={editImage} alt="Editar" />
+          </button>
+        </div>
+      </section>
+      <section className="myProducts">
+        <h2 className="myProducts__title">Controle de produtos Ofertados</h2>
+
+        <CardMyProducts />
+      </section>
+    </main>
+  </DivContainer>
+);
