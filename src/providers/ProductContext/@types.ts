@@ -6,8 +6,8 @@ export interface iProduct {
   name: string;
   description: string;
   img: string;
-  acquired_Value: number; // corrigir o nome na API para acquiredValue;
-  sale_Value: number; // corrigir o nome na API para saleValue;
+  acquiredValue: number;
+  saleValue: number;
   category: string;
   userId: string;
   id: number;

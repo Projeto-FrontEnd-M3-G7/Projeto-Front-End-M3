@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-primary: #8637A1;
     --color-secondary: #FF0000;
     --grey-100: #D5CEFC;
+    --grey-100op: rgba(213, 206, 252, 0.8);
     --grey-50: rgba(255, 255, 255, 0.8);
     --grey-25: #F8F8F8;
     --grey-0: #FFFFFF;
@@ -47,11 +48,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    //height: 100vh;
     font-family: "Inter", sans-serif;
     background-image: url('src/assets/img/imgBackground.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
   }
 
   button, Link {
