@@ -1,14 +1,12 @@
-import { MyProdutsCard } from '../MyProductsCard';
-import { CardContainer } from './style';
+import { CardContainer } from "./style";
+import { MyProdutsCard } from "../MyProductsCard";
 
-export const CardMyProducts = () => {
-    return (
-        <CardContainer>
-            <MyProdutsCard />
-            <MyProdutsCard />
-            <MyProdutsCard />
-            <MyProdutsCard />
-            <MyProdutsCard />
-        </CardContainer>
-    );
-};
+export const CardMyProducts = () => (
+  <CardContainer>
+    <MyProdutsCard />
+    <MyProdutsCard />
+    <MyProdutsCard />
+    <MyProdutsCard />
+    <MyProdutsCard />
+  </CardContainer>
+);

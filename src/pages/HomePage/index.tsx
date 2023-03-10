@@ -8,7 +8,10 @@ import { ModalLogin } from "../../components/Modais/ModalLogin";
 import { ModalRegister } from "../../components/Modais/ModalRegister";
 import { ProductContext } from "../../providers/ProductContext/ProductContext";
 
+
 export const HomePage = () => {
+  const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
+  const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
   const { productsShop, categoriesProducts } = useContext(ProductContext);
   const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
   const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
