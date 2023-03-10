@@ -23,7 +23,7 @@ export const UserProvider = ({ children }: iProvidersProps) => {
     const token = localStorage.getItem("@Click&Colect:TOKEN");
 
     if (token) {
-      navigate("/shop");
+      navigate("/Shop");
     } else {
       navigate("/");
     }

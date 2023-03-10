@@ -5,6 +5,7 @@ import { UserContext } from "../../providers/UserContext/UserContext";
 import { ModalControlPanel } from "../../components/Modais/ModalControlPanel";
 import { ModalExcluirProduct } from "../../components/Modais/ModalExcluirProduct";
 import { ModalCreateProduct } from "../../components/Modais/ModalCreateProduct";
+import { iUserContext } from "../../providers/UserContext/@types";
 
 export const AdminPage = () => {
   const {
@@ -14,24 +15,12 @@ export const AdminPage = () => {
     setIsOpenModalDeleteProduct,
     isOpenModalEditProduct,
     setIsOpenModalEditProduct,
-  } = useContext(UserContext);
+  }: iUserContext = useContext(UserContext);
   return (
     <StyledAdminPage>
-      {isOpenModalEditProduct && (
-        <ModalCreateProduct
-          setIsOpenModalEditProduct={setIsOpenModalEditProduct}
-        />
-      )}
-      {isOpenModalDeleteProduct && (
-        <ModalExcluirProduct
-          setIsOpenModalDeleteProduct={setIsOpenModalDeleteProduct}
-        />
-      )}
-      {isOpenModalControlPanel && (
-        <ModalControlPanel
-          setIsOpenModalControlPanel={setIsOpenModalControlPanel}
-        />
-      )}
+      {isOpenModalEditProduct && <ModalCreateProduct />}
+      {isOpenModalDeleteProduct && <ModalExcluirProduct />}
+      {isOpenModalControlPanel && <ModalControlPanel />}
       <HeaderAdmin />
       <div className="adminMain">
         <div className="options">
