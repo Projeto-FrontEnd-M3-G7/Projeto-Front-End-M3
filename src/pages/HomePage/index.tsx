@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { StyledMain } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
@@ -39,6 +39,7 @@ export const HomePage = () => {
           </section>
         </div>
       </StyledMain>
+
       <Footer />
     </>
   );
