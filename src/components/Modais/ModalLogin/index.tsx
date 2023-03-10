@@ -8,7 +8,7 @@ import { formSchemaLogin } from "../schemas";
 import { UserContext } from "../../../providers/UserContext/UserContext";
 
 export const ModalLogin = () => {
-  const { setIsOpenModalLogin, setIsOpenModalRegister } =
+  const { setIsOpenModalLogin, setIsOpenModalRegister, userLogin } =
     useContext(UserContext);
 
   const {
@@ -30,7 +30,7 @@ export const ModalLogin = () => {
         </div>
         <form
           className="formModal"
-          onSubmit={handleSubmit((data) => console.log(data))}
+          onSubmit={handleSubmit((data) => userLogin(data))}
         >
           <p>Preencha os campos para realizar login</p>
           <Input
