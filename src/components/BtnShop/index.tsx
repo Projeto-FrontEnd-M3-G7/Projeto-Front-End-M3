@@ -1,7 +1,9 @@
 import { StyledBtnShop } from "./styles";
 
-export const BtnShop = ({ text, event }) => (
-  <StyledBtnShop type="button" onClick={event}>
-    {text}
-  </StyledBtnShop>
+interface iBtnShop {
+  text: string;
+}
+
+export const BtnShop = ({ text }: iBtnShop) => (
+  <StyledBtnShop type="button">{text}</StyledBtnShop>
 );
