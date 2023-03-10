@@ -20,6 +20,10 @@ export const Categories = () => {
     setSearch(data);
   };
 
+  const searchCategory = async (data: iFormData) => {
+    setSearch(data);
+  };
+
   return (
     <StyledAside>
       <h2>Categorias</h2>
@@ -38,19 +42,17 @@ export const Categories = () => {
         </button>
       </form>
       <ul>
-        {categories?.map((product) => (
-          <li>{product}</li>
+        {categories?.map((category) => (
+          <li>
+            <button
+              className="btnCategory"
+              type="button"
+              onClick={() => searchCategory({ category })}
+            >
+              {category}
+            </button>
+          </li>
         ))}
-        <li>Eletrônicos</li>
-        <li>Calçados</li>
-        <li>Roupas</li>
-        <li>Eletrodomésticos</li>
-        <li>Informática</li>
-        <li>Eletrônicos</li>
-        <li>Calçados</li>
-        <li>Roupas</li>
-        <li>Eletrodomésticos</li>
-        <li>Informática</li>
       </ul>
     </StyledAside>
   );

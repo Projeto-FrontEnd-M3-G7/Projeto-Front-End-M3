@@ -3,7 +3,13 @@ import { StyledUl } from "./styles";
 import { ProductCard } from "./ProductCard";
 import { ProductContext } from "../../providers/ProductContext/ProductContext";
 
-export const ProductList = ({ showButtons }) => {
+interface iPropsProduct {
+  setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export const ProductList = ({
+  showButtons,
+  setIsOpenModalLogin,
+}: iPropsProduct) => {
   const { searchProducts, loading } = useContext(ProductContext);
 
   return (
@@ -18,6 +24,7 @@ export const ProductList = ({ showButtons }) => {
             key={product.id}
             product={product}
             showButtons={showButtons}
+            setIsOpenModalLogin={setIsOpenModalLogin}
           />
         ))
       )}
