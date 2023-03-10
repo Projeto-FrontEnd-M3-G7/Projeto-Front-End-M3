@@ -20,4 +20,10 @@ export interface iUserContext {
   userLogin: (formData: IValuesLoginForm) => Promise<void>;
   userRegister: (formData: iValuesRegisterForm) => Promise<void>;
   user: iUser | null;
+  isOpenModalControlPanel: boolean;
+  setIsOpenModalControlPanel: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenModalDeleteProduct: boolean;
+  setIsOpenModalDeleteProduct: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenModalEditProduct: boolean;
+  setIsOpenModalEditProduct: React.Dispatch<React.SetStateAction<boolean>>;
 }
