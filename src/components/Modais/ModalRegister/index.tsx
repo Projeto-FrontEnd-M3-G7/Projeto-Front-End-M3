@@ -9,12 +9,8 @@ import { formSchemaRegister } from "../schemas";
 import { UserContext } from "../../../providers/UserContext/UserContext";
 
 export const ModalRegister = () => {
-  const {
-    isOpenModalLogin,
-    setIsOpenModalLogin,
-    isOpenModalRegister,
-    setIsOpenModalRegister,
-  } = useContext(UserContext);
+  const { setIsOpenModalLogin, setIsOpenModalRegister, userRegister } =
+    useContext(UserContext);
 
   const {
     register,
@@ -35,7 +31,7 @@ export const ModalRegister = () => {
         </div>
         <form
           className="formModal"
-          onSubmit={handleSubmit((data) => console.log(data))}
+          onSubmit={handleSubmit((data) => userRegister(data))}
         >
           <p>Preencha os campos para realizar o cadastro</p>
           <Input
