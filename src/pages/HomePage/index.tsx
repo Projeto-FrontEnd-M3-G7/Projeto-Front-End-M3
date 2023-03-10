@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { StyledMain } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
@@ -7,14 +7,12 @@ import { ProductList } from "../../components/ProductList";
 import { ModalLogin } from "../../components/Modais/ModalLogin";
 import { ModalRegister } from "../../components/Modais/ModalRegister";
 import { ProductContext } from "../../providers/ProductContext/ProductContext";
-
+import { UserContext } from "../../providers/UserContext/UserContext";
 
 export const HomePage = () => {
-  const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
-  const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
+  const { isOpenModalLogin, isOpenModalRegister } = useContext(UserContext);
+
   const { productsShop, categoriesProducts } = useContext(ProductContext);
-  const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
-  const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
 
   useEffect(() => {
     productsShop();
@@ -23,24 +21,9 @@ export const HomePage = () => {
 
   return (
     <>
-      {isOpenModalLogin && (
-        <ModalLogin
-          setIsOpenModalLogin={setIsOpenModalLogin}
-          setIsOpenModalRegister={setIsOpenModalRegister}
-        />
-      )}
-      {isOpenModalRegister && (
-        <ModalRegister
-          setIsOpenModalLogin={setIsOpenModalLogin}
-          setIsOpenModalRegister={setIsOpenModalRegister}
-        />
-      )}
-      <Header
-        labelBtn1="Login"
-        labelBtn2="Cadastrar"
-        setIsOpenModalLogin={setIsOpenModalLogin}
-        setIsOpenModalRegister={setIsOpenModalRegister}
-      />
+      {isOpenModalLogin && <ModalLogin />}
+      {isOpenModalRegister && <ModalRegister />}
+      <Header labelBtn1="Login" labelBtn2="Cadastrar" />
       <StyledMain>
         <div className="boxMain">
           <div className="containerCategories">
@@ -51,11 +34,12 @@ export const HomePage = () => {
               <h2>Ofertas em Destaques</h2>
             </div>
             <div className="boxVitrine">
-              <ProductList setIsOpenModalLogin={setIsOpenModalLogin} />
+              <ProductList showButtons={false} />
             </div>
           </section>
         </div>
       </StyledMain>
+
       <Footer />
     </>
   );

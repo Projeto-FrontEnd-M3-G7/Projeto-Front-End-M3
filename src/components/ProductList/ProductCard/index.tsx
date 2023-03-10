@@ -5,7 +5,8 @@ import { BtnShop } from "../../BtnShop";
 interface iProductsProps {
   product: iProduct;
   setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  showButtons: boolean;
 }
 
 export const ProductCard = ({
@@ -23,7 +24,7 @@ export const ProductCard = ({
       >
         <img src={product.img} alt={product.name} />
         <p>{product.description}</p>
-        <span>R$ {product.sale_Value}</span>
+        <span>R$ {product.saleValue.toFixed(2)}</span>
         {children && children}
       </button>
     </StyledLi>

@@ -19,6 +19,8 @@ export const StyledBoxDiv = styled.div`
 
     background-color: var(--grey-50);
 
+    animation: animacaoModal 0.5s;
+
     .headerModal {
       position: relative;
       display: flex;
@@ -32,10 +34,12 @@ export const StyledBoxDiv = styled.div`
         font-family: "Inter", sans-serif;
         font-size: var(--title2);
       }
-      span {
+      .span {
         position: absolute;
         top: 0;
         right: 0;
+        background-color: var(--grey-0);
+        border: none;
 
         font-family: "Inter", sans-serif;
         font-size: var(--text_card);
@@ -98,6 +102,17 @@ export const StyledBoxDiv = styled.div`
           color: var(--grey-0);
           background-color: var(--color-primary);
         }
+      }
+    }
+
+    @keyframes animacaoModal {
+      from {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
   }

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 import { StyledAside } from "./styles";
 import { ProductContext } from "../../providers/ProductContext/ProductContext";
 
@@ -9,6 +10,8 @@ export interface iFormData {
 
 export const Categories = () => {
   const { categories, setSearch } = useContext(ProductContext);
+
+  const all = undefined;
 
   const {
     register,
@@ -22,6 +25,10 @@ export const Categories = () => {
 
   const searchCategory = async (data: iFormData) => {
     setSearch(data);
+  };
+
+  const searchCategoryAll = async () => {
+    setSearch(all);
   };
 
   return (
@@ -42,8 +49,17 @@ export const Categories = () => {
         </button>
       </form>
       <ul>
+        <li key={uuidv4()}>
+          <button
+            className="btnCategory"
+            type="button"
+            onClick={() => searchCategoryAll()}
+          >
+            Todos
+          </button>
+        </li>
         {categories?.map((category) => (
-          <li>
+          <li key={uuidv4()}>
             <button
               className="btnCategory"
               type="button"

@@ -1,27 +1,17 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useContext } from "react";
+import { iValuesRegisterForm } from "./@types";
 import { StyledBoxDiv } from "../styles";
 import { Input } from "../../Input";
 import { Select } from "../../Select/styles";
 import { formSchemaRegister } from "../schemas";
+import { UserContext } from "../../../providers/UserContext/UserContext";
 
-interface iModalRegister {
-  setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsOpenModalRegister: React.Dispatch<React.SetStateAction<boolean>>;
-}
+export const ModalRegister = () => {
+  const { setIsOpenModalLogin, setIsOpenModalRegister, userRegister } =
+    useContext(UserContext);
 
-interface iValuesRegisterForm {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  colaborador: string;
-}
-
-export const ModalRegister = ({
-  setIsOpenModalRegister,
-  setIsOpenModalLogin,
-}: iModalRegister) => {
   const {
     register,
     handleSubmit,
@@ -41,7 +31,7 @@ export const ModalRegister = ({
         </div>
         <form
           className="formModal"
-          onSubmit={handleSubmit((data) => console.log(data))}
+          onSubmit={handleSubmit((data) => userRegister(data))}
         >
           <p>Preencha os campos para realizar o cadastro</p>
           <Input

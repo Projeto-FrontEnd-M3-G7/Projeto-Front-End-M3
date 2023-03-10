@@ -1,14 +1,16 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { iModalLogin, IValuesLoginForm } from "./@types";
+import { useContext } from "react";
+import { IValuesLoginForm } from "./@types";
 import { StyledBoxDiv } from "../styles";
 import { Input } from "../../Input";
 import { formSchemaLogin } from "../schemas";
+import { UserContext } from "../../../providers/UserContext/UserContext";
 
-export const ModalLogin = ({
-  setIsOpenModalLogin,
-  setIsOpenModalRegister,
-}: iModalLogin) => {
+export const ModalLogin = () => {
+  const { setIsOpenModalLogin, setIsOpenModalRegister, userLogin } =
+    useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -16,6 +18,7 @@ export const ModalLogin = ({
   } = useForm<IValuesLoginForm>({
     resolver: yupResolver(formSchemaLogin),
   });
+
   return (
     <StyledBoxDiv>
       <dialog>
@@ -27,7 +30,7 @@ export const ModalLogin = ({
         </div>
         <form
           className="formModal"
-          onSubmit={handleSubmit((data) => console.log(data))}
+          onSubmit={handleSubmit((data) => userLogin(data))}
         >
           <p>Preencha os campos para realizar login</p>
           <Input
