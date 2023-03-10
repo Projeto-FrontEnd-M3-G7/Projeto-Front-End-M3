@@ -1,16 +1,15 @@
+import { useContext } from "react";
 import { StyledBtn } from "./styles";
+import { UserContext } from "../../providers/UserContext/UserContext";
 
 interface iBtnProps {
   children: string;
   labelBtn1: string;
-  setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const BtnLogin = ({
-  children,
-  labelBtn1,
-  setIsOpenModalLogin,
-}: iBtnProps) => {
+export const BtnLogin = ({ children, labelBtn1 }: iBtnProps) => {
+  const { setIsOpenModalLogin } = useContext(UserContext);
+
   if (labelBtn1 === "Login") {
     return (
       <StyledBtn
