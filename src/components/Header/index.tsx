@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
 import { StyledHeader } from "./styles";
 import { BtnLogin } from "../BtnLogin";
 import { BtnRegister } from "../BtnRegister";
-import { MenuMobile } from "../MenuMobile";
-import { NavBar } from "../MenuMobile/NavBar";
 import { Categories } from "../Categories";
-import { UserContext } from "../../providers/UserContext/UserContext";
 
 export interface iBtnHeader {
   labelBtn1: string;
@@ -13,42 +12,38 @@ export interface iBtnHeader {
 }
 
 export const Header = ({ labelBtn1, labelBtn2 }: iBtnHeader) => {
-  const {
-    isOpenModalLogin,
-    setIsOpenModalLogin,
-    isOpenModalRegister,
-    setIsOpenModalRegister,
-  } = useContext(UserContext);
-
-  const [showMenu, setShowMenu] = useState<string>("hidden");
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <StyledHeader>
       <div className="boxHeader">
         <div className="boxLogo">
-          <img src="./src/assets/img/editLogo.png" alt="Logo da empresa" />
-        </div>
-        <div className="boxNav">
-          <BtnLogin
-            labelBtn1={labelBtn1}
-            setIsOpenModalLogin={setIsOpenModalLogin}
+          <img
+            className="logoImg"
+            src="./src/assets/img/editLogo.png"
+            alt="Logo da empresa"
+          />
+          <button
+            type="button"
+            className={showMenu ? "hamburguer fecharMenu" : "hamburguer"}
+            onClick={() => setShowMenu(!showMenu)}
           >
-            {labelBtn1}
-          </BtnLogin>
-          <BtnRegister
-            labelBtn2={labelBtn2}
-            setIsOpenModalRegister={setIsOpenModalRegister}
-          >
-            {labelBtn2}
-          </BtnRegister>
+            {showMenu ? (
+              <IoMdClose className="img" />
+            ) : (
+              <GiHamburgerMenu className="img" />
+            )}
+          </button>
         </div>
-        <div className="boxNavIcon">
-          <MenuMobile setShowMenu={setShowMenu} />
+        <div className={showMenu ? "boxNav" : "boxNav hidden"}>
+          <BtnLogin labelBtn1={labelBtn1}>{labelBtn1}</BtnLogin>
+          <BtnRegister labelBtn2={labelBtn2}>{labelBtn2}</BtnRegister>
         </div>
-      </div>
-      <div className={showMenu}>
-        <NavBar />
-        {showMenu === "showMenu" && <Categories />}
+        {showMenu && (
+          <div className="categories">
+            <Categories />
+          </div>
+        )}
       </div>
     </StyledHeader>
   );
