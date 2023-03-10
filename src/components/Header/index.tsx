@@ -1,24 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { StyledHeader } from "./styles";
 import { BtnLogin } from "../BtnLogin";
 import { BtnRegister } from "../BtnRegister";
 import { MenuMobile } from "../MenuMobile";
 import { NavBar } from "../MenuMobile/NavBar";
 import { Categories } from "../Categories";
+import { UserContext } from "../../providers/UserContext/UserContext";
 
 export interface iBtnHeader {
   labelBtn1: string;
   labelBtn2: string;
-  setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsOpenModalRegister: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Header = ({
-  labelBtn1,
-  labelBtn2,
-  setIsOpenModalLogin,
-  setIsOpenModalRegister,
-}: iBtnHeader) => {
+export const Header = ({ labelBtn1, labelBtn2 }: iBtnHeader) => {
+  const {
+    isOpenModalLogin,
+    setIsOpenModalLogin,
+    isOpenModalRegister,
+    setIsOpenModalRegister,
+  } = useContext(UserContext);
+
   const [showMenu, setShowMenu] = useState<string>("hidden");
 
   return (

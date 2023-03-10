@@ -2,14 +2,14 @@ import { useContext } from "react";
 import { StyledUl } from "./styles";
 import { ProductCard } from "./ProductCard";
 import { ProductContext } from "../../providers/ProductContext/ProductContext";
+import { UserContext } from "../../providers/UserContext/UserContext";
 
 interface iPropsProduct {
-  setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  showButtons: boolean;
 }
-export const ProductList = ({
-  showButtons,
-  setIsOpenModalLogin,
-}: iPropsProduct) => {
+
+export const ProductList = ({ showButtons }: iPropsProduct) => {
+  const { setIsOpenModalLogin } = useContext(UserContext);
   const { searchProducts, loading } = useContext(ProductContext);
 
   return (

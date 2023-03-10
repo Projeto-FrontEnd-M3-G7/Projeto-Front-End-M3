@@ -5,7 +5,8 @@ import { BtnShop } from "../../BtnShop";
 interface iProductsProps {
   product: iProduct;
   setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  showButtons: boolean;
 }
 
 export const ProductCard = ({
