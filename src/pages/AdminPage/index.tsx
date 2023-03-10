@@ -6,6 +6,7 @@ import { ModalControlPanel } from "../../components/Modais/ModalControlPanel";
 import { ModalExcluirProduct } from "../../components/Modais/ModalExcluirProduct";
 import { ModalCreateProduct } from "../../components/Modais/ModalCreateProduct";
 import { iUserContext } from "../../providers/UserContext/@types";
+import { ModalUpdateProduct } from "../../components/Modais/ModalUpdateProduct";
 
 export const AdminPage = () => {
   const {
@@ -15,10 +16,13 @@ export const AdminPage = () => {
     setIsOpenModalDeleteProduct,
     isOpenModalEditProduct,
     setIsOpenModalEditProduct,
+    isOpenModalCreateProduct,
+    setIsOpenModalCreateProduct,
   }: iUserContext = useContext(UserContext);
   return (
     <StyledAdminPage>
-      {isOpenModalEditProduct && <ModalCreateProduct />}
+      {isOpenModalCreateProduct && <ModalCreateProduct />}
+      {isOpenModalEditProduct && <ModalUpdateProduct />}
       {isOpenModalDeleteProduct && <ModalExcluirProduct />}
       {isOpenModalControlPanel && <ModalControlPanel />}
       <HeaderAdmin />
@@ -28,7 +32,12 @@ export const AdminPage = () => {
           <select name="Categories" id="Categories">
             <option value="1">Selecionar por Categoria</option>
           </select>
-          <button type="button">+ Criar</button>
+          <button
+            type="button"
+            onClick={() => setIsOpenModalCreateProduct(true)}
+          >
+            + Criar
+          </button>
         </div>
         <ul>
           <li>

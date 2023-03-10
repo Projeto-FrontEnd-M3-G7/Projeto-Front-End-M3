@@ -11,6 +11,8 @@ export const UserContext = createContext({} as iUserContext);
 export const UserProvider = ({ children }: iProvidersProps) => {
   const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
   const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
+  const [isOpenModalCreateProduct, setIsOpenModalCreateProduct] =
+    useState(false);
   const [isOpenModalControlPanel, setIsOpenModalControlPanel] = useState(false);
   const [isOpenModalDeleteProduct, setIsOpenModalDeleteProduct] =
     useState(false);
@@ -22,9 +24,7 @@ export const UserProvider = ({ children }: iProvidersProps) => {
   useEffect(() => {
     const token = localStorage.getItem("@Click&Colect:TOKEN");
 
-    if (token) {
-      navigate("/Shop");
-    } else {
+    if (!token) {
       navigate("/");
     }
   }, []);
@@ -81,6 +81,8 @@ export const UserProvider = ({ children }: iProvidersProps) => {
         user,
         setIsOpenModalEditProduct,
         isOpenModalEditProduct,
+        isOpenModalCreateProduct,
+        setIsOpenModalCreateProduct,
       }}
     >
       {children}
