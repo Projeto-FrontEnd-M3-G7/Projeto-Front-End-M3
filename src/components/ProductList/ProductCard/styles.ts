@@ -23,10 +23,10 @@ export const StyledLi = styled.li`
   img {
     width: 111.76px;
     height: 73.13px;
-    padding-top: 5px;
     object-fit: contain;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
+    padding-top: 5px;
   }
 
   p {
@@ -34,7 +34,6 @@ export const StyledLi = styled.li`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-top: 16.4px;
     margin-bottom: 20px;
     line-height: 25px;
     max-height: 50px;
@@ -50,19 +49,42 @@ export const StyledLi = styled.li`
     color: var(--fontBlack);
   }
 
+  .btnCard {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: none;
+
+    p {
+      margin: 16.4px auto;
+    }
+  }
+
   @media (min-width: 769px) {
     width: 284px;
     height: 259.87px;
 
+    .btnCard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        height: 52px;
+        margin-bottom: 30px;
+      }
+    }
+
     img {
       width: 162.61px;
       height: 108.6px;
+      padding-top: 10px;
     }
 
     p {
       max-width: 250px;
       font-size: var(--text1);
-      margin-bottom: 30px;
     }
 
     span {
@@ -70,11 +92,13 @@ export const StyledLi = styled.li`
     }
   }
 `;
+
 export const StyledButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+
   div {
     display: flex;
     flex-direction: row;

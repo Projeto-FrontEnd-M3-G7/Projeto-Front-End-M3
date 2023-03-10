@@ -51,10 +51,20 @@ export const StyledAside = styled.aside`
 
       :hover,
       :focus {
-        transform: translateX(20px) scale(1.2);
+        transform: translateX(30px) scale(1.2);
         filter: brightness(80%);
       }
     }
+  }
+
+  button {
+    border: none;
+  }
+
+  .btnCategory {
+    font-size: var(--title4);
+    color: var(--grey-0);
+    background-color: transparent;
   }
 
   @media (min-width: 769px) {
@@ -78,10 +88,6 @@ export const StyledAside = styled.aside`
     img {
       top: 85px;
       left: 205px;
-    }
-
-    button {
-      border: none;
     }
   }
 `;
