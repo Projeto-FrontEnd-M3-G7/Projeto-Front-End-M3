@@ -1,16 +1,21 @@
 import { useContext } from "react";
 import { StyledCarDiv } from "./styles";
-import { ProductContext } from "../../../providers/ProductContext/ProductContext";
+import { UserContext } from "../../../providers/UserContext/UserContext";
 
 export const ModalExcluirProduct = () => {
-  const { isOpenModalDeleteProduct, setIsOpenModalDeleteProduct } =
-    useContext(ProductContext);
+  const { setIsOpenModalDeleteProduct } = useContext(UserContext);
   return (
     <StyledCarDiv>
       <dialog>
         <div className="headerModal">
           <h3>Excluir Produto</h3>
-          <span>X</span>
+          <button
+            onClick={() => setIsOpenModalDeleteProduct(false)}
+            type="button"
+            className="span"
+          >
+            X
+          </button>
         </div>
         <p>Tem certeza que deseja deletar esse produto?</p>
         <div className="boxContentProduct">

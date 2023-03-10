@@ -4,6 +4,7 @@ import { HeaderAdmin } from "../../components/Header/HeaderAdmin";
 import { UserContext } from "../../providers/UserContext/UserContext";
 import { ModalControlPanel } from "../../components/Modais/ModalControlPanel";
 import { ModalExcluirProduct } from "../../components/Modais/ModalExcluirProduct";
+import { ModalCreateProduct } from "../../components/Modais/ModalCreateProduct";
 
 export const AdminPage = () => {
   const {
@@ -11,9 +12,16 @@ export const AdminPage = () => {
     setIsOpenModalControlPanel,
     isOpenModalDeleteProduct,
     setIsOpenModalDeleteProduct,
+    isOpenModalEditProduct,
+    setIsOpenModalEditProduct,
   } = useContext(UserContext);
   return (
     <StyledAdminPage>
+      {isOpenModalEditProduct && (
+        <ModalCreateProduct
+          setIsOpenModalEditProduct={setIsOpenModalEditProduct}
+        />
+      )}
       {isOpenModalDeleteProduct && (
         <ModalExcluirProduct
           setIsOpenModalDeleteProduct={setIsOpenModalDeleteProduct}
@@ -60,7 +68,11 @@ export const AdminPage = () => {
               </div>
             </div>
             <aside>
-              <button className="btn-edit" type="button">
+              <button
+                className="btn-edit"
+                onClick={() => setIsOpenModalEditProduct(true)}
+                type="button"
+              >
                 <img src="src/assets/img/icons8-edit.png" alt="icon-edit.png" />
               </button>
               <button
@@ -111,7 +123,11 @@ export const AdminPage = () => {
               </div>
             </div>
             <aside>
-              <button className="btn-edit" type="button">
+              <button
+                className="btn-edit"
+                onClick={() => setIsOpenModalEditProduct(true)}
+                type="button"
+              >
                 <img src="src/assets/img/icons8-edit.png" alt="icon-edit.png" />
               </button>
               <button
@@ -124,7 +140,11 @@ export const AdminPage = () => {
                   alt="icon-view.png"
                 />
               </button>
-              <button type="button" className="btn-delete">
+              <button
+                type="button"
+                className="btn-delete"
+                onClick={() => setIsOpenModalDeleteProduct(true)}
+              >
                 <img
                   src="src/assets/img/icons8-excluir-lixeira.png"
                   alt="icon-delete.png"
@@ -158,7 +178,11 @@ export const AdminPage = () => {
               </div>
             </div>
             <aside>
-              <button className="btn-edit" type="button">
+              <button
+                className="btn-edit"
+                onClick={() => setIsOpenModalEditProduct(true)}
+                type="button"
+              >
                 <img src="src/assets/img/icons8-edit.png" alt="icon-edit.png" />
               </button>
               <button
@@ -171,7 +195,11 @@ export const AdminPage = () => {
                   alt="icon-view.png"
                 />
               </button>
-              <button type="button" className="btn-delete">
+              <button
+                type="button"
+                className="btn-delete"
+                onClick={() => setIsOpenModalDeleteProduct(true)}
+              >
                 <img
                   src="src/assets/img/icons8-excluir-lixeira.png"
                   alt="icon-delete.png"
@@ -205,7 +233,11 @@ export const AdminPage = () => {
               </div>
             </div>
             <aside>
-              <button className="btn-edit" type="button">
+              <button
+                className="btn-edit"
+                onClick={() => setIsOpenModalEditProduct(true)}
+                type="button"
+              >
                 <img src="src/assets/img/icons8-edit.png" alt="icon-edit.png" />
               </button>
               <button
@@ -218,7 +250,121 @@ export const AdminPage = () => {
                   alt="icon-view.png"
                 />
               </button>
-              <button type="button" className="btn-delete">
+              <button
+                type="button"
+                className="btn-delete"
+                onClick={() => setIsOpenModalDeleteProduct(true)}
+              >
+                <img
+                  src="src/assets/img/icons8-excluir-lixeira.png"
+                  alt="icon-delete.png"
+                />
+              </button>
+            </aside>
+          </li>
+          <li>
+            <div className="products-info">
+              <h3 className="product-name">
+                Monitor para PC Full HD Samsung LED Curvo 27” - C27F390F
+              </h3>
+              <p className="product-description">
+                Informações do Produto: Os monitores de tela curva da Samsung
+                prometem uma experiência completamente imersiva para você
+                desfrutar do conforto visual e imagens de altíssima definição. O
+                design é pensado para que você se sinta dentro de cada cena,
+                seja em vídeos e filmes ou games insanos.É exatamente isso o que
+                você vai ganhar com esse monitor curvo de LED de 27 polegadas
+                com resolução Full HD e os recursos especiais que vão, com
+                certeza, garantir que você não vai mais saber se está dentro ou
+                fora do jogo! Tudo vai ficar muito mais real com o C27F390F.
+              </p>
+              <p className="product-realPrice">Valor Bruto:R$ 200,00</p>
+              <p className="product-price">Valor ofertado:R$ 250,00</p>
+              <div className="product-bottom">
+                <p className="product-quantity">
+                  Quantidade em estoque : <strong>05 unidades</strong>
+                </p>
+                <p className="product-id">id Produto: afkkjemfo-3924942lmc</p>
+              </div>
+            </div>
+            <aside>
+              <button
+                className="btn-edit"
+                onClick={() => setIsOpenModalEditProduct(true)}
+                type="button"
+              >
+                <img src="src/assets/img/icons8-edit.png" alt="icon-edit.png" />
+              </button>
+              <button
+                onClick={() => setIsOpenModalControlPanel(true)}
+                className="btn-controlPanel"
+                type="button"
+              >
+                <img
+                  src="src/assets/img/icons8-gráfico-combinado-50.png"
+                  alt="icon-view.png"
+                />
+              </button>
+              <button
+                type="button"
+                className="btn-delete"
+                onClick={() => setIsOpenModalDeleteProduct(true)}
+              >
+                <img
+                  src="src/assets/img/icons8-excluir-lixeira.png"
+                  alt="icon-delete.png"
+                />
+              </button>
+            </aside>
+          </li>
+          <li>
+            <div className="products-info">
+              <h3 className="product-name">
+                Monitor para PC Full HD Samsung LED Curvo 27” - C27F390F
+              </h3>
+              <p className="product-description">
+                Informações do Produto: Os monitores de tela curva da Samsung
+                prometem uma experiência completamente imersiva para você
+                desfrutar do conforto visual e imagens de altíssima definição. O
+                design é pensado para que você se sinta dentro de cada cena,
+                seja em vídeos e filmes ou games insanos.É exatamente isso o que
+                você vai ganhar com esse monitor curvo de LED de 27 polegadas
+                com resolução Full HD e os recursos especiais que vão, com
+                certeza, garantir que você não vai mais saber se está dentro ou
+                fora do jogo! Tudo vai ficar muito mais real com o C27F390F.
+              </p>
+              <p className="product-realPrice">Valor Bruto:R$ 200,00</p>
+              <p className="product-price">Valor ofertado:R$ 250,00</p>
+              <div className="product-bottom">
+                <p className="product-quantity">
+                  Quantidade em estoque : <strong>05 unidades</strong>
+                </p>
+                <p className="product-id">id Produto: afkkjemfo-3924942lmc</p>
+              </div>
+            </div>
+            <aside>
+              <button
+                className="btn-edit"
+                onClick={() => setIsOpenModalEditProduct(true)}
+                type="button"
+              >
+                <img src="src/assets/img/icons8-edit.png" alt="icon-edit.png" />
+              </button>
+              <button
+                onClick={() => setIsOpenModalControlPanel(true)}
+                className="btn-controlPanel"
+                type="button"
+              >
+                <img
+                  src="src/assets/img/icons8-gráfico-combinado-50.png"
+                  alt="icon-view.png"
+                />
+              </button>
+              <button
+                type="button"
+                className="btn-delete"
+                onClick={() => setIsOpenModalDeleteProduct(true)}
+              >
                 <img
                   src="src/assets/img/icons8-excluir-lixeira.png"
                   alt="icon-delete.png"

@@ -34,10 +34,12 @@ export const StyledBoxDiv = styled.div`
         font-family: "Inter", sans-serif;
         font-size: var(--title2);
       }
-      span {
+      .span {
         position: absolute;
         top: 0;
         right: 0;
+        background-color: var(--grey-0);
+        border: none;
 
         font-family: "Inter", sans-serif;
         font-size: var(--text_card);
