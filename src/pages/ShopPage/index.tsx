@@ -9,7 +9,12 @@ export const ShopPage = () => {
 
   return (
     <>
-      <Header labelBtn1="profile" labelBtn2="logout" />
+      <Header
+        showButtons={showButtons}
+        showLoginAndRegister={false}
+        labelBtn1=""
+        labelBtn2=""
+      />
       <StyledMain>
         <div className="boxMain">
           <div className="containerCategories">

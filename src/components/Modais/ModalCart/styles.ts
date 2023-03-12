@@ -47,10 +47,12 @@ export const StyledCarDiv = styled.div`
         font-weight: 500;
         color: var(--grey-0);
       }
-      span {
+      button {
         font-family: "Inter", sans-serif;
         font-size: var(--headline);
         color: rgba(255, 255, 255, 0.5);
+        border: none;
+        background-color: transparent;
 
         cursor: pointer;
         transition: 0.3s;
