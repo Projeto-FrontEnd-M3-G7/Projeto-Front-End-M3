@@ -23,7 +23,7 @@ export const ProductCard = ({
         onClick={() => setIsOpenModalLogin(true)}
       >
         <img src={product.img} alt={product.name} />
-        <p>{product.description}</p>
+        <p>{product.name}</p>
         <span>R$ {product.saleValue.toFixed(2)}</span>
         {children && children}
       </button>

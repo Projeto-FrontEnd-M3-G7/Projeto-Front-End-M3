@@ -7,6 +7,7 @@ export const StyledLi = styled.li`
   flex-direction: column;
   align-items: center;
   border-radius: 50%;
+  margin-bottom: 10px;
   background-color: var(--grey-25);
   filter: drop-shadow(0px 5px 4px rgba(134, 55, 161, 0.89));
 
