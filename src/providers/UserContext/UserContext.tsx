@@ -10,6 +10,7 @@ import { iValuesEditForm } from '../../components/Modais/ModalEditProfile/@types
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iProvidersProps) => {
+
     const [isOpenModalSobreNos, setIsOpenModalSobreNos] = useState(false);
     const [isOpenModalPlanos, setIsOpenModalPlanos] = useState(false);
     const [isOpenModalContact, setIsOpenModalContact] = useState(false);
@@ -25,6 +26,7 @@ export const UserProvider = ({ children }: iProvidersProps) => {
     const [isOpenModalEditProduct, setIsOpenModalEditProduct] = useState(false);
     const [isOpenModalCart, setIsOpenModalCart] = useState(false);
     const [openEdit, setOpenEdit] = useState(false);
+
 
     const [user, setUser] = useState<iUser | null>(null);
     const navigate = useNavigate();
@@ -103,6 +105,7 @@ export const UserProvider = ({ children }: iProvidersProps) => {
         }
     };
 
+
     return (
         <UserContext.Provider
             value={{
@@ -139,4 +142,5 @@ export const UserProvider = ({ children }: iProvidersProps) => {
             {children}
         </UserContext.Provider>
     );
+
 };

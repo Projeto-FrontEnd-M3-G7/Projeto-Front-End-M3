@@ -6,6 +6,7 @@ export const BtnLogout = ({ children }: iProvidersProps) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("@Click&Colect:TOKEN");
+    localStorage.removeItem("@Click&Colect:ID");
     navigate("/");
   };
 

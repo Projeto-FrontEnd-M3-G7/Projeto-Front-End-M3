@@ -13,10 +13,16 @@ import { api } from '../../services/api';
 export const ProductContext = createContext({} as iProductContext);
 
 export const ProductProvider = ({ children }: iProductContextProps) => {
-    const [products, setProducts] = useState<iProduct[] | null>(null);
-    const [categories, setCategories] = useState<[] | null>(null);
-    const [loading, setLoading] = useState(false);
-    const [search, setSearch] = useState<iSearchForm>();
+
+  const [products, setProducts] = useState<iProduct[] | null>(null);
+  const [categories, setCategories] = useState<[] | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState<iSearchForm>();
+  const [openModalSaibaMais, setOpenModalSaibaMais] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<iProduct[] | null>(
+    null
+  );
+
 
     const searchProducts = products?.filter((product) =>
         search === undefined
@@ -48,20 +54,25 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
             toast.error(currentError.response?.data.error);
         }
     };
+    
+  return (
+    <ProductContext.Provider
+      value={{
+        products,
+        productsShop,
+        loading,
+        setSearch,
+        searchProducts,
+        categoriesProducts,
+        categories,
+        openModalSaibaMais,
+        setOpenModalSaibaMais,
+        selectedProduct,
+        setSelectedProduct,
+      }}
+    >
+      {children}
+    </ProductContext.Provider>
+  );
 
-    return (
-        <ProductContext.Provider
-            value={{
-                products,
-                productsShop,
-                loading,
-                setSearch,
-                searchProducts,
-                categoriesProducts,
-                categories,
-            }}
-        >
-            {children}
-        </ProductContext.Provider>
-    );
 };

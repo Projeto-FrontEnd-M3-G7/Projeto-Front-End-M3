@@ -7,7 +7,7 @@ export const CartContext = createContext({} as iCartContext);
 
 export const CartProvider = ({ children }: iProvidersProps) => {
   const [cartProductsList, setCartProductList] = useState<iProduct[] | []>([]);
-  const [modalCartIsOpen, setModalCartIsOpen] = useState(true);
+  const [modalCartIsOpen, setModalCartIsOpen] = useState(false);
   const [valueToCart, setValueToCart] = useState(0);
 
   useEffect(() => {
