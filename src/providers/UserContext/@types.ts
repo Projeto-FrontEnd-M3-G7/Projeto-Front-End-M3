@@ -36,6 +36,4 @@ export interface iUserContext {
   setIsOpenModalEditProduct: React.Dispatch<React.SetStateAction<boolean>>;
   isOpenModalCreateProduct: boolean;
   setIsOpenModalCreateProduct: React.Dispatch<React.SetStateAction<boolean>>;
-  isOpenModalCart: boolean;
-  setIsOpenModalCart: React.Dispatch<React.SetStateAction<boolean>>;
 }

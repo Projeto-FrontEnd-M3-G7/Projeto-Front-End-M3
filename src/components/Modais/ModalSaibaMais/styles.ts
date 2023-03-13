@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledCarDiv = styled.div`
+export const StyledModalSaibaMais = styled.div`
   position: fixed;
   display: flex;
   align-items: center;
@@ -34,11 +34,12 @@ export const StyledCarDiv = styled.div`
     .headerModal {
       position: relative;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
 
+      justify-content: space-between;
+
+      align-items: center;
       padding: 10px;
-      border-radius: 8px 8px 0 0;
+      border-radius: 8px 8px 0px 0px;
       background-color: var(--color-primary);
 
       h3 {
@@ -63,33 +64,39 @@ export const StyledCarDiv = styled.div`
         }
       }
     }
-    .cartBox {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px;
 
-      .emptyBox {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-
-        p {
-          font-family: "Inter", sans-serif;
-          font-weight: 500;
-          font-size: 1.7rem;
-        }
-
-        span {
-          font-family: "Inter", sans-serif;
-          font-size: 1.3rem;
-        }
+    .products-info {
+      font-family: "Inter", sans-serif;
+      font-size: var(--text_card);
+      font-weight: 500;
+      color: var(--fontBlack);
+      padding: 10px;
+      text-align: justify;
+      .product-price {
+        color: var(--color-primary);
+        margin-top: 1px;
       }
+    }
+    .div-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-radius: 0px 0px 8px 8px;
+      gap: 5px;
 
-      @media (max-width: 450px) {
-        padding: 15px;
+      button {
+        padding: 2px;
+        width: 100%;
+        height: 40px;
+        border-radius: 8px;
+        border: none;
+        background-color: var(--color-primary);
+        font-family: "Inter", sans-serif;
+        font-size: var(--headline);
+        font-weight: 500;
+        color: var(--grey-0);
+        cursor: pointer;
       }
     }
   }

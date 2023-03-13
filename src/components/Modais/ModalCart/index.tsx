@@ -12,7 +12,7 @@ export const ModalCart = () => {
         <header className="headerModal">
           <h3>Carrinho de compras</h3>
           <button type="button" onClick={() => setModalCartIsOpen(false)}>
-            <span>x</span>
+            X
           </button>
         </header>
         <div className="cartBox">

@@ -21,7 +21,6 @@ export const UserProvider = ({ children }: iProvidersProps) => {
   const [isOpenModalDeleteProduct, setIsOpenModalDeleteProduct] =
     useState(false);
   const [isOpenModalEditProduct, setIsOpenModalEditProduct] = useState(false);
-  const [isOpenModalCart, setIsOpenModalCart] = useState(false);
 
   const [user, setUser] = useState<iUser | null>(null);
   const navigate = useNavigate();
@@ -112,8 +111,6 @@ export const UserProvider = ({ children }: iProvidersProps) => {
         isOpenModalEditProduct,
         isOpenModalCreateProduct,
         setIsOpenModalCreateProduct,
-        isOpenModalCart,
-        setIsOpenModalCart,
       }}
     >
       {children}
