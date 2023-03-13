@@ -101,9 +101,11 @@ export const Dashboard = () => {
         <section className="myProducts">
           <h2 className="myProducts__title">Controle de produtos Ofertados</h2>
 
-          <CardMyProducts />
-        </section>
-      </main>
-    </DivContainer>
-  );
+
+                    <CardMyProducts />
+                </section>
+            </main>
+        </DivContainer>
+    );
+
 };
