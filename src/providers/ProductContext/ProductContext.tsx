@@ -17,6 +17,10 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
   const [categories, setCategories] = useState<[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState<iSearchForm>();
+  const [openModalSaibaMais, setOpenModalSaibaMais] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<iProduct[] | null>(
+    null
+  );
 
   const searchProducts = products?.filter((product) =>
     search === undefined
@@ -59,6 +63,10 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
         searchProducts,
         categoriesProducts,
         categories,
+        openModalSaibaMais,
+        setOpenModalSaibaMais,
+        selectedProduct,
+        setSelectedProduct,
       }}
     >
       {children}

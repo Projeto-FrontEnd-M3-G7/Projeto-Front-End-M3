@@ -68,8 +68,7 @@ export const StyledMain = styled.main`
         width: 100%;
         height: auto;
         max-height: 668px;
-        // overflow-x: auto;
-      }
+
 
       .boxTitle {
         margin: 24px auto;

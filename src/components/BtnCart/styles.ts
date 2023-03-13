@@ -12,11 +12,10 @@ export const StyledBtn = styled.button`
   border: none;
   :hover,
   :focus {
-    transform: translateX(30px) scale(1.2);
-    filter: brightness(80%);
+    transform: translateX(8px) scale(1.2);
   }
   img {
-    width: 73%;
+    width: 71%;
     height: 100%;
   }
 `;
