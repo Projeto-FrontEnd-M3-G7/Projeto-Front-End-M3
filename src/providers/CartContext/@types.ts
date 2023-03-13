@@ -5,7 +5,7 @@ export interface iProvidersProps {
 }
 
 export interface iCartContext {
-  cartProductsList: [] | iProduct[];
+  cartProductsList: iProduct[] | [];
   addToCart: (product: iProduct) => void;
   valueToCart: number;
   modalCartIsOpen: boolean;
