@@ -46,6 +46,14 @@ export const GlobalStyle = createGlobalStyle`
 
     font-size: 50.0%;
   }
+  ::-webkit-scrollbar {
+        width: 5px;
+        height: fit-content;
+        background-color: var(--grey-25);
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary);
+      }
 
   body {
     //height: 100vh;
