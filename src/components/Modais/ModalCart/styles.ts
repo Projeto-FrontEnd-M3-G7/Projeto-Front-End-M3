@@ -47,16 +47,21 @@ export const StyledCarDiv = styled.div`
         font-weight: 500;
         color: var(--grey-0);
       }
-      span {
-        font-family: "Inter", sans-serif;
-        font-size: var(--headline);
-        color: rgba(255, 255, 255, 0.5);
+      button {
+        background-color: transparent;
+        border: none;
 
-        cursor: pointer;
-        transition: 0.3s;
+        span {
+          font-family: "Inter", sans-serif;
+          font-size: var(--headline);
+          color: rgba(255, 255, 255, 0.5);
 
-        :hover {
-          transform: scale(1.3);
+          cursor: pointer;
+          transition: 0.3s;
+
+          :hover {
+            transform: scale(1.3);
+          }
         }
       }
     }
@@ -65,6 +70,26 @@ export const StyledCarDiv = styled.div`
       flex-direction: column;
       gap: 20px;
       padding: 20px;
+
+      .emptyBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        p {
+          font-family: "Inter", sans-serif;
+          font-weight: 500;
+          font-size: 1.7rem;
+        }
+
+        span {
+          font-family: "Inter", sans-serif;
+          font-size: 1.3rem;
+        }
+      }
+
       @media (max-width: 450px) {
         padding: 15px;
       }

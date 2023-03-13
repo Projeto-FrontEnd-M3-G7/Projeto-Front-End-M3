@@ -1,22 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { StyledCartProductCard } from "./styles";
+import { iProduct } from "../../../../../providers/ProductContext/@types";
+import { CartContext } from "../../../../../providers/CartContext/CartContext";
 
-export const CartProductCard = () => {
+interface iCartProductCard {
+  product: iProduct;
+}
+
+export const CartProductCard = ({ product }: iCartProductCard) => {
   const [valueInput, setValueInput] = useState(1);
+  const { removeToCart } = useContext(CartContext);
 
   return (
     <StyledCartProductCard>
       <div className="imageBox">
-        <img
-          src="https://tse2.mm.bing.net/th?id=OIP.iqLnf2ymTtcxxhXTo_sM_AHaJG&pid=Api&P=0"
-          alt="nome"
-        />
+        <img src={product.img} alt={product.name} />
       </div>
       <div className="contentBox">
         <div>
-          <p>Nome do Produto</p>
-          <div>
+          <p>{product.name}</p>
+          {/*           <div>
             <button type="button" onClick={() => setValueInput(valueInput - 1)}>
               -
             </button>
@@ -24,9 +28,9 @@ export const CartProductCard = () => {
             <button type="button" onClick={() => setValueInput(valueInput + 1)}>
               +
             </button>
-          </div>
+          </div> */}
         </div>
-        <FaTrash className="button" />
+        <FaTrash className="button" onClick={() => removeToCart(product)} />
       </div>
     </StyledCartProductCard>
   );

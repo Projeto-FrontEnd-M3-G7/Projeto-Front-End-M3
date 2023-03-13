@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { CartProductList } from "./CardProductList";
 import { StyledCarDiv } from "./styles";
+import { CartContext } from "../../../providers/CartContext/CartContext";
 
 export const ModalCart = () => {
-  const [cartProducts, setCartProducts] = useState([1, 2, 4]);
+  const { cartProductsList, setModalCartIsOpen } = useContext(CartContext);
 
   return (
     <StyledCarDiv>
       <dialog>
         <header className="headerModal">
           <h3>Carrinho de compras</h3>
-          <span>x</span>
+          <button type="button" onClick={() => setModalCartIsOpen(false)}>
+            <span>x</span>
+          </button>
         </header>
         <div className="cartBox">
-          {cartProducts.length > 0 ? (
+          {cartProductsList.length > 0 ? (
             <CartProductList />
           ) : (
             <div className="emptyBox">

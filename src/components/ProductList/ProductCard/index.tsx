@@ -31,8 +31,8 @@ export const ProductCard = ({
 
     {showButtons && (
       <div>
-        <BtnShop text="+ Saiba mais" />
-        <BtnShop text="Adicionar" />
+        <BtnShop text="+ Saiba mais" product={product} />
+        <BtnShop text="Adicionar" product={product} />
       </div>
     )}
   </StyledButtonContainer>
