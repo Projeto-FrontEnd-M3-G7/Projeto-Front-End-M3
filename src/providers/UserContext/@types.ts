@@ -13,6 +13,14 @@ export interface iProvidersProps {
 }
 
 export interface iUserContext {
+  isOpenModalSobreNos: boolean;
+  setIsOpenModalSobreNos: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenModalPlanos: boolean;
+  setIsOpenModalPlanos: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenModalContact: boolean;
+  setIsOpenModalContact: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenModalFAQ: boolean;
+  setIsOpenModalFAQ: React.Dispatch<React.SetStateAction<boolean>>;
   isOpenModalLogin: boolean;
   setIsOpenModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
   isOpenModalRegister: boolean;

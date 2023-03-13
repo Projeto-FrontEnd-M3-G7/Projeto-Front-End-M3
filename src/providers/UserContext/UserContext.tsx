@@ -9,6 +9,10 @@ import { IValuesLoginForm } from "../../components/Modais/ModalLogin/@types";
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iProvidersProps) => {
+  const [isOpenModalSobreNos, setIsOpenModalSobreNos] = useState(false);
+  const [isOpenModalPlanos, setIsOpenModalPlanos] = useState(false);
+  const [isOpenModalContact, setIsOpenModalContact] = useState(false);
+  const [isOpenModalFAQ, setIsOpenModalFAQ] = useState(false);
   const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
   const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
   const [isOpenModalCreateProduct, setIsOpenModalCreateProduct] =
@@ -69,6 +73,14 @@ export const UserProvider = ({ children }: iProvidersProps) => {
   return (
     <UserContext.Provider
       value={{
+        isOpenModalSobreNos,
+        setIsOpenModalSobreNos,
+        isOpenModalPlanos,
+        setIsOpenModalPlanos,
+        isOpenModalContact,
+        setIsOpenModalContact,
+        isOpenModalFAQ,
+        setIsOpenModalFAQ,
         isOpenModalLogin,
         setIsOpenModalLogin,
         isOpenModalRegister,

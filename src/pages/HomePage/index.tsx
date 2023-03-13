@@ -8,9 +8,20 @@ import { ModalLogin } from "../../components/Modais/ModalLogin";
 import { ModalRegister } from "../../components/Modais/ModalRegister";
 import { ProductContext } from "../../providers/ProductContext/ProductContext";
 import { UserContext } from "../../providers/UserContext/UserContext";
+import { ModalFAQ } from "../../components/Modais/ModalFAQ";
+import { ModalContact } from "../../components/Modais/ModalContact";
+import { ModalPlanos } from "../../components/Modais/ModalPlanos";
+import { ModalSobreNos } from "../../components/Modais/ModalSobreNos";
 
 export const HomePage = () => {
-  const { isOpenModalLogin, isOpenModalRegister } = useContext(UserContext);
+  const {
+    isOpenModalLogin,
+    isOpenModalRegister,
+    isOpenModalFAQ,
+    isOpenModalContact,
+    isOpenModalPlanos,
+    isOpenModalSobreNos,
+  } = useContext(UserContext);
 
   const { productsShop, categoriesProducts } = useContext(ProductContext);
 
@@ -23,6 +34,10 @@ export const HomePage = () => {
     <>
       {isOpenModalLogin && <ModalLogin />}
       {isOpenModalRegister && <ModalRegister />}
+      {isOpenModalFAQ && <ModalFAQ />}
+      {isOpenModalContact && <ModalContact />}
+      {isOpenModalPlanos && <ModalPlanos />}
+      {isOpenModalSobreNos && <ModalSobreNos />}
       <Header labelBtn1="Login" labelBtn2="Cadastrar" />
       <StyledMain>
         <div className="boxMain">

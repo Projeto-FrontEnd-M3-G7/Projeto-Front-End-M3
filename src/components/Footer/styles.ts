@@ -21,8 +21,13 @@ export const StyledFooter = styled.footer`
   .boxContact {
     display: flex;
     gap: 6px;
-    font-size: var(--text_card);
-    color: var(--grey-25);
+
+    .btnContact {
+      font-size: var(--text_card);
+      color: var(--grey-25);
+      border: none;
+      background-color: transparent;
+    }
   }
 
   .btnLogin {
@@ -37,6 +42,10 @@ export const StyledFooter = styled.footer`
     .boxContact {
       gap: 12px;
       font-size: var(--text1);
+
+      .btnContact {
+        font-size: var(--text1);
+      }
     }
   }
 `;

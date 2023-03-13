@@ -22,7 +22,7 @@ export const StyledMain = styled.main`
     .boxVitrine {
       height: 95%;
       max-height: 652px;
-      overflow-x: auto;
+      overflow: auto;
     }
 
     .boxTitle {
@@ -46,11 +46,13 @@ export const StyledMain = styled.main`
   @media (min-width: 769px) {
     height: 816px;
     padding-top: 26px;
-    padding-left: 22px;
-    padding-right: 22px;
+    padding-left: 4.16%;
+    padding-right: 4.16%;
 
     .boxMain {
       display: flex;
+      justify-content: space-between;
+      gap: 15px;
 
       .containerCategories {
         display: flex;
@@ -58,13 +60,15 @@ export const StyledMain = styled.main`
     }
 
     section {
+      min-width: 70%;
       margin: 0;
-      width: 1109px;
       max-height: 770px;
 
       .boxVitrine {
+        width: 100%;
+        height: auto;
         max-height: 668px;
-        overflow-x: auto;
+        // overflow-x: auto;
       }
 
       .boxTitle {
