@@ -108,4 +108,3 @@ export const Dashboard = () => {
             </main>
         </DivContainer>
     );
-};

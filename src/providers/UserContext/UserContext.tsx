@@ -28,8 +28,23 @@ export const UserProvider = ({ children }: iProvidersProps) => {
 
   useEffect(() => {
     const token = localStorage.getItem("@Click&Colect:TOKEN");
+    const userId = localStorage.getItem("@Click&Colect:ID");
 
-    if (!token) {
+    if (token && userId) {
+      const autoLogin = async () => {
+        try {
+          const response = await api.get(`users/${userId}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setUser(response.data);
+        } catch (error) {
+          navigate("/");
+        }
+      };
+      autoLogin();
+    } else {
       navigate("/");
     }
   }, []);
@@ -57,6 +72,7 @@ export const UserProvider = ({ children }: iProvidersProps) => {
       const response = await api.post("signin", formData);
       setUser(response.data.user);
       localStorage.setItem("@Click&Colect:TOKEN", response.data.accessToken);
+      localStorage.setItem("@Click&Colect:ID", response.data.user.id);
       setIsOpenModalLogin(false);
       toast.success("Login realizado com sucesso!", {
         autoClose: 1000,
