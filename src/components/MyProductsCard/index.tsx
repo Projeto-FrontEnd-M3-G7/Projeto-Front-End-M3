@@ -12,15 +12,13 @@ interface iProductProps {
 }
 
 export const MyProdutsCard = ({ product }: iProductProps) => {
-    console.log(product);
+    //console.log(product);
 
     return (
         <MyCardContainer>
-            <button className="infoProducts">
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p>{product.price}</p>
-            </button>
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <p>{product.price}</p>
         </MyCardContainer>
     );
 };
