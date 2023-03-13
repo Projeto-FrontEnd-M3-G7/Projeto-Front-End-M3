@@ -20,6 +20,19 @@ export const StyledCarDiv = styled.div`
     padding: 15px;
     background-color: #ffffff;
 
+    animation: animacaoModal 0.5s;
+
+    @keyframes animacaoModal {
+      from {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
     .headerModal {
       position: relative;
       display: flex;
@@ -33,10 +46,12 @@ export const StyledCarDiv = styled.div`
         font-family: "Inter", sans-serif;
         font-size: var(--title3);
       }
-      span {
+      .span {
         position: absolute;
         top: 0;
         right: 0;
+        background-color: var(--grey-0);
+        border: none;
 
         font-family: "Inter", sans-serif;
         font-size: 1.8rem;

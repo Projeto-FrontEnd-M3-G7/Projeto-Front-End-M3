@@ -30,7 +30,7 @@ export const StyledCartProductCard = styled.li`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 5px 20px 10px 0;
+    padding: 5px 10px 10px 0;
 
     > div {
       display: flex;
@@ -40,6 +40,10 @@ export const StyledCartProductCard = styled.li`
       p {
         font-size: 1.4rem;
         font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 220px;
       }
 
       > div {

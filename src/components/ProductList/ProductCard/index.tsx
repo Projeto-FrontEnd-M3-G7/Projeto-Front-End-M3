@@ -23,16 +23,16 @@ export const ProductCard = ({
         onClick={() => setIsOpenModalLogin(true)}
       >
         <img src={product.img} alt={product.name} />
-        <p>{product.description}</p>
-        <span>R$ {product.sale_Value}</span>
+        <p>{product.name}</p>
+        <span>R$ {product.saleValue.toFixed(2)}</span>
         {children && children}
       </button>
     </StyledLi>
 
     {showButtons && (
       <div>
-        <BtnShop text="+ Saiba mais" />
-        <BtnShop text="Adicionar" />
+        <BtnShop text="+ Saiba mais" product={product} />
+        <BtnShop text="Adicionar" product={product} />
       </div>
     )}
   </StyledButtonContainer>

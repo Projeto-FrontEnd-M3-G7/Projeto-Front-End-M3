@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledMain = styled.main`
   width: 100%;
-  height: auto;
+  min-height: 100vh;
   padding-left: 10px;
   padding-right: 10px;
 
@@ -13,17 +13,16 @@ export const StyledMain = styled.main`
   }
 
   section {
-    margin: 10px auto;
     width: 95%;
-    max-height: 552px;
+    margin: 10px auto;
     padding-top: 5px;
-    background-color: var(--grey-100);
-    opacity: 80%;
+    background-color: var(--grey-100op);
     border-radius: var(--radius-input);
 
     .boxVitrine {
       height: 95%;
-      overflow-x: auto;
+      max-height: 652px;
+      overflow: auto;
     }
 
     .boxTitle {
@@ -47,11 +46,13 @@ export const StyledMain = styled.main`
   @media (min-width: 769px) {
     height: 816px;
     padding-top: 26px;
-    padding-left: 22px;
-    padding-right: 22px;
+    padding-left: 4.16%;
+    padding-right: 4.16%;
 
     .boxMain {
       display: flex;
+      justify-content: space-between;
+      gap: 15px;
 
       .containerCategories {
         display: flex;
@@ -59,13 +60,15 @@ export const StyledMain = styled.main`
     }
 
     section {
+      min-width: 70%;
       margin: 0;
-      width: 1109px;
       max-height: 770px;
 
       .boxVitrine {
-        height: 668px;
-        overflow-x: auto;
+        width: 100%;
+        height: auto;
+        max-height: 668px;
+        // overflow-x: auto;
       }
 
       .boxTitle {

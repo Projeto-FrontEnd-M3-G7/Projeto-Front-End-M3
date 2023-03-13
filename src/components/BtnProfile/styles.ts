@@ -10,11 +10,4 @@ export const StyledBtn = styled.button`
   margin-top: 13.7px;
   border-radius: var(--radius-default);
   border: none;
-
-  @media (min-width: 769px) {
-    .boxNav {
-      width: 142px;
-      height: 56.31px;
-    }
-  }
 `;

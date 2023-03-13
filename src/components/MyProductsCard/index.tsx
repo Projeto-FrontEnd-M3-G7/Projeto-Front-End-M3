@@ -1,14 +1,26 @@
-import { MyCardContainer } from "./style";
+import { MyCardContainer } from './style';
 
-export const MyProdutsCard = () => {
-  console.log();
-  return (
-    <MyCardContainer>
-      <button className="infoProducts">
-        <h3>Nome do produto</h3>
-        <p>Descrição do produto</p>
-        <p>Preço</p>
-      </button>
-    </MyCardContainer>
-  );
+interface iProductProps {
+    name?: string;
+    description?: string;
+    img?: string;
+    acquired_Value?: string;
+    sale_Value?: string;
+    category?: string;
+    userId?: number;
+    id?: number;
+}
+
+export const MyProdutsCard = ({ product }: iProductProps) => {
+    console.log(product);
+
+    return (
+        <MyCardContainer>
+            <button className="infoProducts">
+                <h3>{product.name}</h3>
+                <p>{product.description}</p>
+                <p>{product.price}</p>
+            </button>
+        </MyCardContainer>
+    );
 };

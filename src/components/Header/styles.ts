@@ -28,6 +28,7 @@ export const StyledHeader = styled.header`
       display: flex;
       justify-content: center;
       gap: 10px;
+      align-items: center;
     }
 
     .hidden {

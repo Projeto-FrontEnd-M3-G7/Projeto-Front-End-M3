@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const StyledLi = styled.li`
-  width: 195px;
-  min-height: 175px;
+  width: 284px;
+  height: 259.87px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 50%;
+  margin-bottom: 10px;
   background-color: var(--grey-25);
   filter: drop-shadow(0px 5px 4px rgba(134, 55, 161, 0.89));
 
@@ -21,12 +22,12 @@ export const StyledLi = styled.li`
   }
 
   img {
-    width: 111.76px;
-    height: 73.13px;
+    width: 162.61px;
+    height: 108.6px;
     object-fit: contain;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    padding-top: 5px;
+    padding-top: 10px;
   }
 
   p {
@@ -50,6 +51,9 @@ export const StyledLi = styled.li`
   }
 
   .btnCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: transparent;
     width: 100%;
     height: 100%;
@@ -57,38 +61,23 @@ export const StyledLi = styled.li`
     border: none;
 
     p {
-      margin: 16.4px auto;
-    }
-  }
-
-  @media (min-width: 769px) {
-    width: 284px;
-    height: 259.87px;
-
-    .btnCard {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      p {
-        height: 52px;
-        margin-bottom: 30px;
-      }
-    }
-
-    img {
-      width: 162.61px;
-      height: 108.6px;
-      padding-top: 10px;
-    }
-
-    p {
-      max-width: 250px;
+      margin: 30px auto;
       font-size: var(--text1);
     }
 
     span {
       font-size: var(--text1);
+    }
+  }
+
+  @media (min-width: 769px) {
+    .btnCard {
+      p {
+        height: 52px;
+        margin-bottom: 15px;
+        max-width: 250px;
+        font-size: var(--text1);
+      }
     }
   }
 `;

@@ -68,10 +68,9 @@ export const StyledAside = styled.aside`
   }
 
   @media (min-width: 769px) {
-    width: 259px;
     height: 618px;
-    margin-right: 28px;
-    margin-top: 0;
+    //margin-right: 28px;
+    margin: 0;
 
     ul {
       overflow: hidden;
@@ -87,7 +86,7 @@ export const StyledAside = styled.aside`
 
     img {
       top: 85px;
-      left: 205px;
+      left: 75%;
     }
   }
 `;

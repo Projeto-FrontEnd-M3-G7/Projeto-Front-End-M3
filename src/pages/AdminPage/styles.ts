@@ -27,8 +27,9 @@ export const StyledAdminPage = styled.main`
         height: 100%;
       }
       button {
+        border: none;
         border-radius: var(--radius-input);
-        width: 5%;
+        width: 7%;
         height: 100%;
         color: var(--grey-0);
         background-color: var(--color-primary);
@@ -40,18 +41,11 @@ export const StyledAdminPage = styled.main`
       overflow-y: auto;
       margin: 0 auto;
       padding: 2%;
-      background-color: var(--grey-50);
+      background-color: var(--grey-25);
       width: 76%;
       height: 90%;
       gap: 3%;
-      ::-webkit-scrollbar {
-        width: 5px;
-        height: fit-content;
-        background-color: var(--grey-50);
-      }
-      ::-webkit-scrollbar-thumb {
-        background-color: var(--color-primary);
-      }
+
       li {
         padding: 1%;
         gap: 2px;
