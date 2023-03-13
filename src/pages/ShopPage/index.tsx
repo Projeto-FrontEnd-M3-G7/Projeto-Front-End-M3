@@ -1,20 +1,20 @@
+import { useContext } from "react";
 import { StyledMain } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Categories } from "../../components/Categories";
 import { ProductList } from "../../components/ProductList";
+import { ModalCart } from "../../components/Modais/ModalCart";
+import { CartContext } from "../../providers/CartContext/CartContext";
 
 export const ShopPage = () => {
   const showButtons = true;
+  const { modalCartIsOpen } = useContext(CartContext);
 
   return (
     <>
-      <Header
-        showButtons={showButtons}
-        showLoginAndRegister={false}
-        labelBtn1=""
-        labelBtn2=""
-      />
+      {modalCartIsOpen && <ModalCart />}
+      <Header labelBtn1="profile" labelBtn2="logout" />
       <StyledMain>
         <div className="boxMain">
           <div className="containerCategories">
