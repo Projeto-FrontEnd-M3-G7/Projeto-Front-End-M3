@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { StyledBtn } from "./styles";
 import { UserContext } from "../../providers/UserContext/UserContext";
 
@@ -9,6 +10,7 @@ interface iBtnProps {
 
 export const BtnLogin = ({ children, labelBtn1 }: iBtnProps) => {
   const { setIsOpenModalLogin } = useContext(UserContext);
+  const navigate = useNavigate();
 
   if (labelBtn1 === "Login") {
     return (
@@ -16,6 +18,18 @@ export const BtnLogin = ({ children, labelBtn1 }: iBtnProps) => {
         type="button"
         onClick={() => {
           setIsOpenModalLogin(true);
+        }}
+      >
+        {children}
+      </StyledBtn>
+    );
+  }
+  if (labelBtn1 === "Voltar") {
+    return (
+      <StyledBtn
+        type="button"
+        onClick={() => {
+          navigate("/shop");
         }}
       >
         {children}

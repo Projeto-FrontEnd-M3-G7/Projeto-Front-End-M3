@@ -1,38 +1,42 @@
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { StyledBoxDiv } from "../styles";
 import { Input } from "../../Input";
 import { Select } from "../../Select/styles";
-import { useContext } from "react";
 import { UserContext } from "../../../providers/UserContext/UserContext";
-import { iUser } from "../../../providers/UserContext/@types";
 
-interface iValues {
-  name?: string;
-  email?: string;
-  password?: string;
-  colaborador: string;
-}
+const formSchemaEdit = yup.object().shape({
+  name: yup.string().required("É obrigatório digitar um nome."),
+
+  email: yup
+    .string()
+    .required("É obrigatório digitar um E-mail.")
+    .email("E-mail inválido"),
+
+  password: yup
+    .string()
+    .required("É obrigatório digitar uma senha.")
+
+    .matches(/[A-Z]/, "É obrigatório pelo menos uma letra maiúscula.")
+    .matches(/[a-z]/, "É obrigatório pelo menos uma letra minúscula.")
+    .matches(/(\d)/, "É obrigatório pelo menos um número.")
+    .matches(/(\W|_)/, "É obrigatório pelo menos um caractere especial.")
+    .matches(/.{8,}/, "A senha deve conter no mínimo 8 caracteres"),
+
+  colaborador: yup.string(),
+});
 
 export const ModalEditProfile = () => {
-  const { user, openEdit, setOpenEdit, userEdit } = useContext(UserContext);
-
-  const sendEdit = (event: any) => {
-    // event.preventDefault();
-    const value: iValues = {
-      name: event.target[0].value,
-      email: event.target[1].value,
-      password: event.target[2].value,
-      colaborador: event.target[3].value,
-    };
-
-    //    userEdit(value);
-    if (value.name !== "" && value.email !== "" && value.password !== "")
-      if (value.name !== "" && value.email !== "" && value.password !== "")
-        if (value.name !== "" && value.email !== "" && value.password !== "")
-          if (value.name !== "" && value.email !== "" && value.password !== "")
-            console.log(value);
-          else console.log(value.colaborador);
-    console.log(value.colaborador);
-  };
+  const { openEdit, setOpenEdit, userEdit } = useContext(UserContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formSchemaEdit),
+  });
 
   return (
     <StyledBoxDiv>
@@ -47,19 +51,28 @@ export const ModalEditProfile = () => {
             X
           </button>
         </div>
-        <form className="formModal" onSubmit={(event) => sendEdit(event)}>
+        <form
+          className="formModal"
+          onSubmit={handleSubmit((data) => userEdit(data))}
+        >
+          <Input placeholder="nome" type="text" register={register("name")} />
+          <p>{errors.email?.message}</p>
+
           <Input
-            disabled="disabled"
-            // value={user.name}
-            placeholder="nome"
-            type="text"
+            placeholder="seu e-mail"
+            type="email"
+            register={register("email")}
           />
+          <p>{errors.email?.message}</p>
 
-          <Input placeholder="seu e-mail" type="email" />
+          <Input
+            placeholder="nova senha"
+            type="password"
+            register={register("password")}
+          />
+          <p>{errors.email?.message}</p>
 
-          <Input placeholder="nova senha" type="password" />
-
-          <Select>
+          <Select {...register("colaborador")}>
             <option value="true">Deseja me tornar um vendedor</option>
             <option value="false">Deseja ser consumidor</option>
           </Select>

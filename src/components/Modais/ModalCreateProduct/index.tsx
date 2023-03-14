@@ -22,8 +22,9 @@ export const ModalCreateProduct = () => {
           <Input placeholder="Nome do Produto" />
           <StyledTextarea placeholder="Informações adicionais" />
           <Input placeholder="Imagem do Produto (url)" />
-          <Input placeholder="Valor para Venda" />
-          <Input placeholder="Necessário informar o id do produto para sua atualização" />
+          <Input placeholder="Valor do produto adquirido" />
+          <Input placeholder="Valor para Venda do produto" />
+          <Input placeholder="Qunatidade em estoque" />
           <div>
             <button className="cancelar" type="submit">
               Criar Produto

@@ -1,6 +1,6 @@
 export interface iValuesEditForm {
-    name?: string;
-    email?: string;
-    password?: string;
-    colaborador?: string;
+  name: string;
+  email: string;
+  password: string;
+  colaborador: string;
 }

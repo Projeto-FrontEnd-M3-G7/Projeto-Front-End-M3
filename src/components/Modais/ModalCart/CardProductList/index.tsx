@@ -1,10 +1,12 @@
 import { useContext } from "react";
+import { toast } from "react-toastify";
 import { CartProductCard } from "./CartProductCard";
 import { StyledCartProductList } from "./styles";
 import { CartContext } from "../../../../providers/CartContext/CartContext";
 
 export const CartProductList = () => {
-  const { cartProductsList, valueToCart } = useContext(CartContext);
+  const { cartProductsList, valueToCart, setCartProductList } =
+    useContext(CartContext);
 
   return (
     <StyledCartProductList>
@@ -22,10 +24,27 @@ export const CartProductList = () => {
           R$ {valueToCart.toFixed(2).replaceAll(".", ",")}
         </p>
       </div>
-      <button className="finalizar" type="button">
+      <button
+        className="finalizar"
+        type="button"
+        onClick={() => {
+          toast.success(
+            `Obrigado por finalizar a sua compra no valor de R$ ${valueToCart}. Volte sempre!`
+          );
+          setCartProductList([]);
+        }}
+      >
         Finalizar Compra
       </button>
-      <button type="button">Remover Todos</button>
+      <button
+        type="button"
+        onClick={() => {
+          setCartProductList([]);
+          toast.success("Esvaziamos a sua sacola, adicione novos itens!");
+        }}
+      >
+        Remover Todos
+      </button>
     </StyledCartProductList>
   );
 };

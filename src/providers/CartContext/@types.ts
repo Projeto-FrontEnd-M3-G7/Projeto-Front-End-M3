@@ -6,6 +6,7 @@ export interface iProvidersProps {
 
 export interface iCartContext {
   cartProductsList: iProduct[] | [];
+  setCartProductList: React.Dispatch<React.SetStateAction<iProduct[]>>;
   addToCart: (product: iProduct) => void;
   valueToCart: number;
   modalCartIsOpen: boolean;

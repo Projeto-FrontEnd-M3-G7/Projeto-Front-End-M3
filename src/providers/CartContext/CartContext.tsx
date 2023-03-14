@@ -53,6 +53,7 @@ export const CartProvider = ({ children }: iProvidersProps) => {
   return (
     <CartContext.Provider
       value={{
+        setCartProductList,
         cartProductsList,
         addToCart,
         valueToCart,
