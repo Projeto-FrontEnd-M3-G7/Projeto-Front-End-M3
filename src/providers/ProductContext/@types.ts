@@ -35,4 +35,8 @@ export interface iProductContext {
   searchProducts: iProduct[] | undefined;
   categoriesProducts: () => Promise<void>;
   categories: [] | null;
+  openModalSaibaMais: boolean;
+  setOpenModalSaibaMais: React.Dispatch<React.SetStateAction<boolean>>;
+  selectedProduct: iProduct | null;
+  setSelectedProduct: React.Dispatch<React.SetStateAction<iProduct | null>>;
 }

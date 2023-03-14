@@ -1,5 +1,6 @@
+import { StyledInput } from './styles';
+import { iPropsInput } from './@types';
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import { StyledInput } from "./styles";
 
 interface iPropsInput {
   placeholder: string;
@@ -17,5 +18,5 @@ interface iPropsInput {
 }
 
 export const Input = ({ placeholder, type, register }: iPropsInput) => (
-  <StyledInput type={type} placeholder={placeholder} {...register} />
+    <StyledInput type={type} placeholder={placeholder} {...register} />
 );

@@ -8,8 +8,8 @@ import { Categories } from "../Categories";
 import { BtnProfile } from "../BtnProfile";
 import { BtnLogout } from "../BtnLogout";
 import { BtnCart } from "../BtnCart";
-import { UserContext } from "../../providers/UserContext/UserContext";
 import { ModalCart } from "../Modais/ModalCart";
+import { CartContext } from "../../providers/CartContext/CartContext";
 
 interface iBtnHeader {
   showButtons?: boolean;
@@ -25,11 +25,11 @@ export const Header = ({
   labelBtn2,
 }: iBtnHeader) => {
   const [showMenu, setShowMenu] = useState(false);
-  const { isOpenModalCart, setIsOpenModalCart } = useContext(UserContext);
+  const { modalCartIsOpen, setModalCartIsOpen } = useContext(CartContext);
 
   return (
     <StyledHeader>
-      {isOpenModalCart && <ModalCart />}
+      {modalCartIsOpen && <ModalCart />}
       <div className="boxHeader">
         <div className="boxLogo">
           <img
@@ -60,7 +60,7 @@ export const Header = ({
             <>
               <BtnProfile>Profile</BtnProfile>
               <BtnLogout>Logout</BtnLogout>
-              <BtnCart event={() => setIsOpenModalCart(true)} />
+              <BtnCart event={() => setModalCartIsOpen(true)} />
             </>
           )}
         </div>

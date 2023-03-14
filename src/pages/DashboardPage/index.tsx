@@ -1,32 +1,41 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { DivContainer } from "./style";
 import { CardMyProducts } from "../../components/MyProducts";
 import { Header } from "../../components/Header";
+import { UserContext } from '../../providers/UserContext/UserContext';
 
-import editImage from "../../assets/img/icons8-edit.png";
-import { UserContext } from "../../providers/UserContext/UserContext";
+import editImage from '../../assets/img/icons8-edit.png';
+import { ModalEditProfile } from '../../components/Modais/ModalEditProfile';
 
 export const Dashboard = () => {
-  const { user } = useContext(UserContext);
+    const { user, openEdit, setOpenEdit } = useContext(UserContext);
 
-  return (
-    <DivContainer>
-      <Header labelBtn1="Voltar" labelBtn2="Sair" />
-      <main>
-        <section className="user">
-          <div className="userInfos">
-            <h2>NOME DO USUARIO</h2>
-            <div className="userDados">
-              <p>E-mail:</p>
-              <p>Plano:</p>
-              <p>DATA:</p>
-            </div>
-          </div>
+    return (
+        <DivContainer>
+            <Header labelBtn1="Voltar" labelBtn2="Sair" />
+            {openEdit ? <ModalEditProfile /> : null}
+            <main>
+                <section className="user">
+                    <div className="userInfos">
+                        <h2>Olá, {user?.name}</h2>
+                        <div className="userDados">
+                            <p>E-mail: {user?.email}</p>
+                            <p>
+                                {user?.colaborador
+                                    ? 'Colaborador: Sim'
+                                    : 'Colaborador: Não'}
+                            </p>
+                            <p>DATA: {user?.id}</p>
+                        </div>
+                    </div>
 
           <div className="editUser">
-            <button type="button">
-              <img src={editImage} alt="Editar" />
-            </button>
+                        <button
+                            onClick={() => setOpenEdit(!openEdit)}
+                            type="button"
+                        >
+                            <img src={editImage} alt="Editar" />
+                        </button>
           </div>
         </section>
         <section className="myProducts">
@@ -36,4 +45,5 @@ export const Dashboard = () => {
       </main>
     </DivContainer>
   );
+
 };

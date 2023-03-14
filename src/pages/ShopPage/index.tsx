@@ -6,15 +6,24 @@ import { Categories } from "../../components/Categories";
 import { ProductList } from "../../components/ProductList";
 import { ModalCart } from "../../components/Modais/ModalCart";
 import { CartContext } from "../../providers/CartContext/CartContext";
+import { ProductContext } from "../../providers/ProductContext/ProductContext";
+import { ModalSaibaMais } from "../../components/Modais/ModalSaibaMais";
 
 export const ShopPage = () => {
   const showButtons = true;
   const { modalCartIsOpen } = useContext(CartContext);
+  const { openModalSaibaMais } = useContext(ProductContext);
 
   return (
     <>
+      {openModalSaibaMais && <ModalSaibaMais />}
       {modalCartIsOpen && <ModalCart />}
-      <Header labelBtn1="profile" labelBtn2="logout" />
+      <Header
+        showButtons={showButtons}
+        showLoginAndRegister={false}
+        labelBtn1=""
+        labelBtn2=""
+      />
       <StyledMain>
         <div className="boxMain">
           <div className="containerCategories">

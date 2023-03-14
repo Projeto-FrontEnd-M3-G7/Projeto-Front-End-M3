@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardContainer = styled.ul`
+export const CardContainer = styled.button`
     background-color: var(--grey-100);
 
     margin: auto;

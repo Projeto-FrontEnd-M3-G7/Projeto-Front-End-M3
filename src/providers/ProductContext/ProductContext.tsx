@@ -15,11 +15,16 @@ import { iUserContext } from "../UserContext/@types";
 export const ProductContext = createContext({} as iProductContext);
 
 export const ProductProvider = ({ children }: iProductContextProps) => {
+
   const [products, setProducts] = useState<iProduct[] | null>(null);
   const [categories, setCategories] = useState<[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState<iSearchForm>();
+
   const [userProducts, setUserProducts] = useState<iProduct[] | null>(null);
+   const [openModalSaibaMais, setOpenModalSaibaMais] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<iProduct[] | null>(
+    null)
 
   const {
     isOpenModalDeleteProduct,
@@ -34,31 +39,18 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
       : product.category
           .toLowerCase()
           .includes(search.category.toLocaleLowerCase())
-  );
 
-  const productsShop = async () => {
-    try {
-      setLoading(true);
-      const response = await api.get("products");
-      setProducts(response.data);
-    } catch (error) {
-      const currentError = error as AxiosError<errorResponse>;
-      toast.error(currentError.response?.data.error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
-  const categoriesProducts = async () => {
-    try {
-      const response = await api.get("categories");
-      setCategories(response.data);
-    } catch (error) {
-      const currentError = error as AxiosError<errorResponse>;
-      toast.error(currentError.response?.data.error);
-    }
-  };
 
+    const searchProducts = products?.filter((product) =>
+        search === undefined
+            ? true
+            : product.category
+                  .toLowerCase()
+                  .includes(search.category.toLocaleLowerCase())
+    );
+
+    
   const productsUser = async () => {
     const token = localStorage.getItem("@Click&Colect:TOKEN");
     const userId = localStorage.getItem("@Click&Colect:ID");
@@ -134,6 +126,31 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
     }
   };
 
+
+    const productsShop = async () => {
+        try {
+            setLoading(true);
+            const response = await api.get('products');
+            setProducts(response.data);
+        } catch (error) {
+            const currentError = error as AxiosError<errorResponse>;
+            toast.error(currentError.response?.data.error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const categoriesProducts = async () => {
+        try {
+            const response = await api.get('categories');
+            setCategories(response.data);
+        } catch (error) {
+            const currentError = error as AxiosError<errorResponse>;
+            toast.error(currentError.response?.data.error);
+        }
+    };
+    
+
   return (
     <ProductContext.Provider
       value={{
@@ -149,9 +166,14 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
         searchProducts,
         categoriesProducts,
         categories,
+        openModalSaibaMais,
+        setOpenModalSaibaMais,
+        selectedProduct,
+        setSelectedProduct,
       }}
     >
       {children}
     </ProductContext.Provider>
   );
+
 };

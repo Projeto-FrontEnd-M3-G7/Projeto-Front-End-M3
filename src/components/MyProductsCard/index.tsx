@@ -28,4 +28,5 @@ export const MyProdutsCard = ({ product }: iProductsProps) => {
       </button>
     </MyCardContainer>
   );
+
 };
