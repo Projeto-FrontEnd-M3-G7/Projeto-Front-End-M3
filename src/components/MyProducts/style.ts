@@ -3,8 +3,10 @@ import styled from 'styled-components';
 export const CardContainer = styled.button`
     background-color: var(--grey-100);
 
-    margin: auto;
+    margin: 0 auto;
     padding: 15px;
+
+    border: transparent;
 
     width: 100%;
     display: flex;
@@ -13,13 +15,11 @@ export const CardContainer = styled.button`
 
     overflow-y: auto;
 
-    @media (min-width: 768px) {
-        display: grid;
-        grid-template-columns: auto auto;
-    }
+    position: relative;
 
-    @media (min-width: 1008px) {
-        display: grid;
-        grid-template-columns: auto auto auto;
+    .empty {
+        margin: auto;
+        padding: 15px;
+        width: 100%;
     }
 `;

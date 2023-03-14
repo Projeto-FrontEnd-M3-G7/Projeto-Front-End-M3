@@ -34,3 +34,14 @@ export const formSchemaLogin = yup.object().shape({
 
     password: yup.string().required('É obrigatório digitar uma senha.'),
 });
+
+export const formSchemaEdit = yup.object().shape({
+    name: yup.string().required('É obrigatório digitar um nome.'),
+
+    email: yup
+        .string()
+        .required('É obrigatório digitar um E-mail.')
+        .email('E-mail inválido'),
+
+    colaborador: yup.string(),
+});

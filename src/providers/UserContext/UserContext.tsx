@@ -10,7 +10,6 @@ import { iValuesEditForm } from '../../components/Modais/ModalEditProfile/@types
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iProvidersProps) => {
-
     const [isOpenModalSobreNos, setIsOpenModalSobreNos] = useState(false);
     const [isOpenModalPlanos, setIsOpenModalPlanos] = useState(false);
     const [isOpenModalContact, setIsOpenModalContact] = useState(false);
@@ -27,8 +26,7 @@ export const UserProvider = ({ children }: iProvidersProps) => {
     const [isOpenModalCart, setIsOpenModalCart] = useState(false);
     const [openEdit, setOpenEdit] = useState(false);
 
-
-    const [user, setUser] = useState<iUser | null>(null);
+    const [user, setUser] = useState<iUser>({} as iUser);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -95,16 +93,26 @@ export const UserProvider = ({ children }: iProvidersProps) => {
     };
 
     const userEdit = async (formData: iValuesEditForm) => {
+        const token = localStorage.getItem('@Click&Colect:TOKEN');
         try {
-            const response = await api.patch(`users/${user!.id}`, formData);
+            const response = await api.patch(`users/${user!.id}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             toast.success('Editado com sucesso', {
                 autoClose: 1000,
             });
+            setUser(response.data);
         } catch (error) {
-            console.log(error);
+            toast.error(
+                'Algo deu errado! Verifique sua conexão com a internet',
+                {
+                    autoClose: 1000,
+                }
+            );
         }
     };
-
 
     return (
         <UserContext.Provider
@@ -142,5 +150,4 @@ export const UserProvider = ({ children }: iProvidersProps) => {
             {children}
         </UserContext.Provider>
     );
-
 };

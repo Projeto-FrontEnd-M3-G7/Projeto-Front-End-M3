@@ -1,18 +1,19 @@
-import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
 export interface iPropsInput {
-  disabled?: string;
-  value?: string;
-  placeholder: string;
-  type?:
-    | "text"
-    | "email"
-    | "password"
-    | "name"
-    | "description"
-    | "img"
-    | "saleValue"
-    | "id";
-  register?: UseFormRegisterReturn<string>;
-  error?: FieldError;
+    disabled?: string;
+    value?: string;
+    placeholder: string;
+    type?:
+        | 'text'
+        | 'email'
+        | 'password'
+        | 'name'
+        | 'description'
+        | 'img'
+        | 'saleValue'
+        | 'id';
+    register?: UseFormRegisterReturn<string>;
+    error?: FieldError;
+    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
