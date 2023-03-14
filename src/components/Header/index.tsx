@@ -34,7 +34,7 @@ export const Header = ({
         <div className="boxLogo">
           <img
             className="logoImg"
-            src="./src/assets/img/editLogo.png"
+            src="./img/editLogo.png"
             alt="Logo da empresa"
           />
           <button
