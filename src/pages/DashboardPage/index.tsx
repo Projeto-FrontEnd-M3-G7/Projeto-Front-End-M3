@@ -3,7 +3,6 @@ import { DivContainer } from "./style";
 import { CardMyProducts } from "../../components/MyProducts";
 import { Header } from "../../components/Header";
 import { UserContext } from "../../providers/UserContext/UserContext";
-import editImage from "../../assets/img/icons8-edit.png";
 import { ModalEditProfile } from "../../components/Modais/ModalEditProfile";
 
 export const Dashboard = () => {
@@ -28,7 +27,7 @@ export const Dashboard = () => {
 
           <div className="editUser">
             <button onClick={() => setOpenEdit(!openEdit)} type="button">
-              <img src={editImage} alt="Editar" />
+              <img src="./img/icons8-edit.png" alt="Editar" />
             </button>
           </div>
         </section>
