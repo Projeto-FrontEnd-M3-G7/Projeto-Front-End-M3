@@ -15,28 +15,16 @@ export const Footer = () => {
     <StyledFooter>
       <div className="boxInfoRedes">
         <Link to="https://www.whatsapp.com/?lang=pt_br" target="_blank">
-          <img
-            src="./src/assets/img/icons8-whatsapp.svg"
-            alt="Logo do whatsapp"
-          />
+          <img src="./img/icons8-whatsapp.svg" alt="Logo do whatsapp" />
         </Link>
         <Link to="https://www.youtube.com/?gl=BR&hl=PT" target="_blank">
-          <img
-            src="./src/assets/img/icons8-youtube.svg"
-            alt="Logo do Youtube"
-          />
+          <img src="./img/icons8-youtube.svg" alt="Logo do Youtube" />
         </Link>
         <Link to="https://pt-br.facebook.com/" target="_blank">
-          <img
-            src="./src/assets/img/icons8-facebook.svg"
-            alt="Logo do Facebook"
-          />
+          <img src="./img/icons8-facebook.svg" alt="Logo do Facebook" />
         </Link>
         <Link to="https://www.instagram.com/" target="_blank">
-          <img
-            src="./src/assets/img/icons8-instagram.svg"
-            alt="Logo do Instagram"
-          />
+          <img src="./img/icons8-instagram.svg" alt="Logo do Instagram" />
         </Link>
       </div>
       <div className="boxContact">

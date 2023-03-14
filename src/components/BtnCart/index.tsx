@@ -6,9 +6,6 @@ interface iBtnCart {
 
 export const BtnCart = ({ event }: iBtnCart) => (
   <StyledBtn onClick={event} type="button">
-    <img
-      src="src/assets/img/icons8-carrinho-de-compras.png"
-      alt="Carrinho de compras"
-    />
+    <img src="./img/icons8-carrinho-de-compras.png" alt="Carrinho de compras" />
   </StyledBtn>
 );

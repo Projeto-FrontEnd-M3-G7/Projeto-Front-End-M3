@@ -18,7 +18,6 @@ export const BtnShop = ({ text, product }: iBtnShop) => {
     if (text === "+ Saiba mais") {
       setOpenModalSaibaMais(true);
       setSelectedProduct(product);
-      console.log("aqui");
     } else if (text === "Adicionar") {
       addToCart(product);
     }

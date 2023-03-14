@@ -23,7 +23,7 @@ export const AdminPage = () => {
   }: iUserContext = useContext(UserContext);
 
   const { productsUser, userProducts } = useContext(ProductContext);
-  const [productSelect, setProductSelect] = useState<iProduct[] | []>();
+  const [productSelect, setProductSelect] = useState<iProduct>({} as iProduct);
 
   useEffect(() => {
     productsUser();
@@ -84,10 +84,7 @@ export const AdminPage = () => {
                   onClick={() => setIsOpenModalEditProduct(true)}
                   type="button"
                 >
-                  <img
-                    src="src/assets/img/icons8-edit.png"
-                    alt="icon-edit.png"
-                  />
+                  <img src="./img/icons8-edit.png" alt="icon-edit.png" />
                 </button>
                 <button
                   onClick={() => {
@@ -98,7 +95,7 @@ export const AdminPage = () => {
                   type="button"
                 >
                   <img
-                    src="src/assets/img/icons8-gráfico-combinado-50.png"
+                    src="./img/icons8-gráfico-combinado-50.png"
                     alt="icon-view.png"
                   />
                 </button>
@@ -111,7 +108,7 @@ export const AdminPage = () => {
                   }}
                 >
                   <img
-                    src="src/assets/img/icons8-excluir-lixeira.png"
+                    src="./img/icons8-excluir-lixeira.png"
                     alt="icon-delete.png"
                   />
                 </button>

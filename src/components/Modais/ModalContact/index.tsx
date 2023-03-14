@@ -18,40 +18,25 @@ export const ModalContact = () => {
         </div>
         <StyledBoxContact>
           <Link to="https://www.whatsapp.com/?lang=pt_br" target="_blank">
-            <img
-              src="./src/assets/img/icons8-whatsapp.svg"
-              alt="Logo do whatsapp"
-            />
+            <img src="./img/icons8-whatsapp.svg" alt="Logo do whatsapp" />
             <span>nosso whatsapp</span>
           </Link>
 
           <Link to="https://www.youtube.com/?gl=BR&hl=PT" target="_blank">
-            <img
-              src="./src/assets/img/icons8-youtube.svg"
-              alt="Logo do Youtube"
-            />
+            <img src="./img/icons8-youtube.svg" alt="Logo do Youtube" />
             <span>youtube</span>
           </Link>
 
           <Link to="https://pt-br.facebook.com/" target="_blank">
-            <img
-              src="./src/assets/img/icons8-facebook.svg"
-              alt="Logo do Facebook"
-            />
+            <img src="./img/icons8-facebook.svg" alt="Logo do Facebook" />
             <span>facebook</span>
           </Link>
           <Link to="https://www.instagram.com/" target="_blank">
-            <img
-              src="./src/assets/img/icons8-instagram.svg"
-              alt="Logo do Instagram"
-            />
+            <img src="./img/icons8-instagram.svg" alt="Logo do Instagram" />
             <span>instagram</span>
           </Link>
           <div>
-            <img
-              src="./src/assets/img/icons8-tel-58.png"
-              alt="Logo do Instagram"
-            />
+            <img src="./img/icons8-tel-58.png" alt="Logo do Instagram" />
             <span>(51) 9 8013 58795</span>
           </div>
         </StyledBoxContact>

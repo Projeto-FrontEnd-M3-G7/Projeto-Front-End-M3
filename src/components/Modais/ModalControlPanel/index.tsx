@@ -10,7 +10,7 @@ interface iPropControlPanel {
 export const ModalControlPanel = ({ productSelect }: iPropControlPanel) => {
   const { setIsOpenModalControlPanel } = useContext(UserContext);
 
-  const totalAdquirido = productSelect.acquiredValue * productSelect.quanty;
+  const totalAdquirido = productSelect.acquiredValue * productSelect.quantity;
   const lucroTotal = productSelect.saleValue - productSelect.acquiredValue;
 
   return (
@@ -38,12 +38,12 @@ export const ModalControlPanel = ({ productSelect }: iPropControlPanel) => {
                   Valor unidade: R$ {productSelect.acquiredValue.toFixed(2)}
                 </p>
                 <p>Total adquirido: R$ {totalAdquirido.toFixed(2)}</p>
-                <span>adquirido: {productSelect.quanty} unid.</span>
+                <span>adquirido: {productSelect.quantity} unid.</span>
               </li>
               <li>
                 <span>Ofertado</span>
                 <p>valor unidade: R$ {productSelect.saleValue.toFixed(2)}</p>
-                <span>ofertados: {productSelect.quanty} unid.</span>
+                <span>ofertados: {productSelect.quantity} unid.</span>
               </li>
               <li>
                 <span>Lucro Total</span>

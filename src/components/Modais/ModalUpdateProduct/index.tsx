@@ -19,7 +19,7 @@ export const ModalUpdateProduct = () => {
   } = useForm<iProduct>({ resolver: yupResolver(schema) });
 
   const submit: SubmitHandler<iProduct> = async (data) => {
-    let formDate: iProduct = [];
+    let formDate: iProduct = {} as iProduct;
 
     if (data.name) {
       formDate = { ...formDate, name: data.name };
@@ -65,10 +65,10 @@ export const ModalUpdateProduct = () => {
             error={errors.name}
           />
           <StyledTextarea
-            name="description"
+            id="description"
             placeholder="Descrição do Produto"
             {...register("description")}
-            error={errors.description}
+            // error={errors.description}
           />
           <Input
             type="img"
