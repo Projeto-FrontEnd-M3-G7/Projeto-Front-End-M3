@@ -10,7 +10,7 @@ export const Dashboard = () => {
 
     return (
         <DivContainer>
-            <Header labelBtn1="Voltar" labelBtn2="Logout" />
+            <Header labelBtn1="Voltar" labelBtn2="Sair" />
             {openEdit ? <ModalEditProfile /> : null}
             <main>
                 <section className="user">

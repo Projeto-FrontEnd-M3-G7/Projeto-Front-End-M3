@@ -10,6 +10,8 @@ export const CardMyProducts = () => {
     const { productsUser, userProducts } = useContext(ProductContext);
     const { user } = useContext(UserContext);
 
+    console.log(userProducts);
+
     const adminPage = () => {
         navigate('/admin-page');
     };
@@ -27,10 +29,10 @@ export const CardMyProducts = () => {
             }}
         >
             <ul className="cardProducts">
-                {userProducts!.length < 1 || !user ? (
+                {userProducts?.length < 1 || !user ? (
                     <h1 className="empty">Você ainda não tem produtos</h1>
                 ) : (
-                    userProducts!.map((product) => (
+                    userProducts?.map((product) => (
                         <MyProdutsCard key={product.id} product={product} />
                     ))
                 )}
