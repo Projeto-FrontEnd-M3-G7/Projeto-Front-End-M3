@@ -1,29 +1,33 @@
-import { iProduct } from '../../providers/ProductContext/@types';
-import { MyCardContainer } from './style';
+import { useNavigate } from "react-router-dom";
+import { MyCardContainer } from "./style";
+import { iProduct } from "../../providers/ProductContext/@types";
 
-interface iProductProps {
-    name?: string;
-    description?: string;
-    img?: string;
-    acquired_Value?: string;
-    sale_Value?: string;
-    category?: string;
-    userId?: number;
-    id?: number;
-    price?: number | string;
+interface iProductsProps {
+  product: iProduct;
 
-    key: number;
-    product: iProduct;
 }
 
-export const MyProdutsCard = ({ product }: iProductProps) => {
-    //console.log(product);
+export const MyProdutsCard = ({ product }: iProductsProps) => {
+  const navigate = useNavigate();
 
-    return (
-        <MyCardContainer>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-        </MyCardContainer>
-    );
+  const adminPage = () => {
+    navigate("/admin-page");
+  };
+
+  return (
+    <MyCardContainer>
+      <button
+        type="button"
+        className="infoProducts"
+        onClick={() => {
+          adminPage();
+        }}
+      >
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <p>{product.saleValue.toFixed(2)}</p>
+      </button>
+    </MyCardContainer>
+  );
+
 };

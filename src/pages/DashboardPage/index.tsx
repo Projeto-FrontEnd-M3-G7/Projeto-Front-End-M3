@@ -1,7 +1,7 @@
-import { DivContainer } from './style';
-import { CardMyProducts } from '../../components/MyProducts';
-import { Header } from '../../components/Header';
-import { useContext } from 'react';
+import { useContext } from "react";
+import { DivContainer } from "./style";
+import { CardMyProducts } from "../../components/MyProducts";
+import { Header } from "../../components/Header";
 import { UserContext } from '../../providers/UserContext/UserContext';
 
 import editImage from '../../assets/img/icons8-edit.png';
@@ -29,23 +29,21 @@ export const Dashboard = () => {
                         </div>
                     </div>
 
-                    <div className="editUser">
+          <div className="editUser">
                         <button
                             onClick={() => setOpenEdit(!openEdit)}
                             type="button"
                         >
                             <img src={editImage} alt="Editar" />
                         </button>
-                    </div>
-                </section>
-                <section className="myProducts">
-                    <h2 className="myProducts__title">
-                        Controle de produtos Ofertados
-                    </h2>
+          </div>
+        </section>
+        <section className="myProducts">
+          <h2 className="myProducts__title">Controle de produtos Ofertados</h2>
+          <CardMyProducts />
+        </section>
+      </main>
+    </DivContainer>
+  );
 
-                    <CardMyProducts />
-                </section>
-            </main>
-        </DivContainer>
-    );
 };
