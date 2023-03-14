@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import {
@@ -9,6 +9,8 @@ import {
   iSearchForm,
 } from "./@types";
 import { api } from "../../services/api";
+import { UserContext } from "../UserContext/UserContext";
+import { iUserContext } from "../UserContext/@types";
 
 export const ProductContext = createContext({} as iProductContext);
 
@@ -17,6 +19,14 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
   const [categories, setCategories] = useState<[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState<iSearchForm>();
+  const [userProducts, setUserProducts] = useState<iProduct[] | null>(null);
+
+  const {
+    isOpenModalDeleteProduct,
+    setIsOpenModalDeleteProduct,
+    isOpenModalEditProduct,
+    setIsOpenModalEditProduct,
+  }: iUserContext = useContext(UserContext);
 
   const searchProducts = products?.filter((product) =>
     search === undefined
@@ -49,9 +59,89 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
     }
   };
 
+  const productsUser = async () => {
+    const token = localStorage.getItem("@Click&Colect:TOKEN");
+    const userId = localStorage.getItem("@Click&Colect:ID");
+
+    try {
+      setLoading(true);
+      const response = await api.get(`users/${userId}?_embed=products`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setUserProducts(response.data.products);
+    } catch (error) {
+      const currentError = error as AxiosError<errorResponse>;
+      toast.error(currentError.response?.data.error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const deleteProduct = async (id: number) => {
+    const token = localStorage.getItem("@Click&Colect:TOKEN");
+    try {
+      setLoading(true);
+      const response = await api.delete(`/products/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      toast.success("Tecnologia deletada com sucesso!");
+      setIsOpenModalDeleteProduct(!isOpenModalDeleteProduct);
+    } catch (error) {
+      const currentError = error as AxiosError<errorResponse>;
+      toast.error(currentError.response?.data.error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const removeProduct = (id: number) => {
+    const newListProduct = userProducts?.filter((product) => product.id !== id);
+    if (newListProduct) {
+      setUserProducts(newListProduct);
+    }
+  };
+
+  const updateProduct = async (formDate: iProduct) => {
+    const token = localStorage.getItem("@Click&Colect:TOKEN");
+    console.log(formDate);
+    try {
+      const response = await api.patch(`/products/${formDate.id}`, formDate, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      toast.success("Tecnologia atualizada com sucesso!");
+
+      setIsOpenModalEditProduct(!isOpenModalEditProduct);
+
+      const newListProducts = userProducts?.map((product) => {
+        if (product.id === formDate.id) {
+          return { ...product, ...formDate };
+        }
+        return product;
+      });
+
+      if (newListProducts) {
+        setUserProducts(newListProducts);
+      }
+    } catch (error) {
+      const currentError = error as AxiosError<errorResponse>;
+      toast.error(currentError.response?.data.error);
+    }
+  };
+
   return (
     <ProductContext.Provider
       value={{
+        updateProduct,
+        deleteProduct,
+        removeProduct,
+        productsUser,
+        userProducts,
         products,
         productsShop,
         loading,

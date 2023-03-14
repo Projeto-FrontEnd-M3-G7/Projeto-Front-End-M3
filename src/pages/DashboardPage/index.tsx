@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DivContainer } from "./style";
 import { CardMyProducts } from "../../components/MyProducts";
 import { Header } from "../../components/Header";
@@ -31,7 +31,6 @@ export const Dashboard = () => {
         </section>
         <section className="myProducts">
           <h2 className="myProducts__title">Controle de produtos Ofertados</h2>
-
           <CardMyProducts />
         </section>
       </main>
