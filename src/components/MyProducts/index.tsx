@@ -10,8 +10,6 @@ export const CardMyProducts = () => {
     const { productsUser, userProducts } = useContext(ProductContext);
     const { user } = useContext(UserContext);
 
-    console.log(userProducts);
-
     const adminPage = () => {
         navigate('/admin-page');
     };
