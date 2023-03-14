@@ -42,10 +42,7 @@ export const Categories = () => {
         />
         {errors.category && <p>Produto não encontrado!</p>}
         <button type="submit">
-          <img
-            src="./src/assets/img/icons8-pesquisar.png"
-            alt="botão de busca"
-          />
+          <img src="./img/icons8-pesquisar.png" alt="botão de busca" />
         </button>
       </form>
       <ul>

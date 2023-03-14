@@ -43,7 +43,7 @@ export const ProductList = ({ showButtons }: iPropsProduct) => {
     <StyledUl>
       {loading ? (
         <div className="boxLoading">
-          <img src="./src/assets/img/Spinner-1s-200px.svg" alt="Loading..." />
+          <img src="./img/Spinner-1s-200px.svg" alt="Loading..." />
         </div>
       ) : (
         <Slider {...sliderSettings}>
