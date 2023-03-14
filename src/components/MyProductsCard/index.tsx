@@ -1,9 +1,10 @@
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MyCardContainer } from "./style";
 import { iProduct } from "../../providers/ProductContext/@types";
 
 interface iProductsProps {
   product: iProduct;
+
 }
 
 export const MyProdutsCard = ({ product }: iProductsProps) => {

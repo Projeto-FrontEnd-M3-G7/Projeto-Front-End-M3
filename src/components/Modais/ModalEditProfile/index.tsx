@@ -4,27 +4,45 @@ import { Select } from '../../Select/styles';
 import { useContext } from 'react';
 import { UserContext } from '../../../providers/UserContext/UserContext';
 
-import { iValuesEditForm } from './@types';
-
 interface iValues {
-    name: string;
-    email: string;
-    password: string;
+    name?: string;
+    email?: string;
+    password?: string;
     colaborador: string;
 }
 
 export const ModalEditProfile = () => {
-    const { openEdit, setOpenEdit, userEdit } = useContext(UserContext);
+    const { user, openEdit, setOpenEdit, userEdit } = useContext(UserContext);
 
-    const teste = (event) => {
+    const sendEdit = (event) => {
         event.preventDefault();
-        const values: iValues = {
+        const value: iValues = {
             name: event.target[0].value,
             email: event.target[1].value,
             password: event.target[2].value,
             colaborador: event.target[3].value,
         };
-        userEdit(values);
+
+        userEdit(value);
+        if (value.name !== '' && value.email !== '' && value.password !== '')
+            if (
+                value.name !== '' &&
+                value.email !== '' &&
+                value.password !== ''
+            )
+                if (
+                    value.name !== '' &&
+                    value.email !== '' &&
+                    value.password !== ''
+                )
+                    if (
+                        value.name !== '' &&
+                        value.email !== '' &&
+                        value.password !== ''
+                    )
+                        console.log(value);
+                    else console.log(value.colaborador);
+        console.log(value.colaborador);
     };
 
     return (
@@ -42,15 +60,18 @@ export const ModalEditProfile = () => {
                 </div>
                 <form
                     className="formModal"
-                    onSubmit={(e) => {
-                        teste(e);
-                    }}
+                    onSubmit={(event) => sendEdit(event)}
                 >
-                    <input placeholder="nome" type="text" />
+                    <Input
+                        disabled="disabled"
+                        value={user.name}
+                        placeholder="nome"
+                        type="text"
+                    />
 
-                    <input placeholder="seu e-mail" type="email" />
+                    <Input placeholder="seu e-mail" type="email" />
 
-                    <input placeholder="nova senha" type="password" />
+                    <Input placeholder="nova senha" type="password" />
 
                     <Select>
                         <option value="true">
