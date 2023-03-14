@@ -1,5 +1,5 @@
 export interface iProductContextProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export interface iProduct {
@@ -15,15 +15,14 @@ export interface iProduct {
 }
 
 export interface errorResponse {
-    error: string;
+  error: string;
 }
 
 export interface iSearchForm {
-    category: string;
+  category: string;
 }
 
 export interface iProductContext {
-
   updateProduct: (data: iProduct) => Promise<void>;
   deleteProduct: (id: number) => Promise<void>;
   removeProduct: (id: number) => void;
@@ -40,5 +39,6 @@ export interface iProductContext {
   setOpenModalSaibaMais: React.Dispatch<React.SetStateAction<boolean>>;
   selectedProduct: iProduct | null;
   setSelectedProduct: React.Dispatch<React.SetStateAction<iProduct | null>>;
-
+  // productSelect: iProduct;
+  // setProductSelect: React.Dispatch<React.SetStateAction<void>>;
 }

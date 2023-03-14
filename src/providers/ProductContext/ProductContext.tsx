@@ -22,9 +22,7 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
 
   const [userProducts, setUserProducts] = useState<iProduct[] | null>(null);
   const [openModalSaibaMais, setOpenModalSaibaMais] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<iProduct[] | null>(
-    null
-  );
+  const [selectedProduct, setSelectedProduct] = useState<iProduct | null>(null);
 
   const {
     isOpenModalDeleteProduct,

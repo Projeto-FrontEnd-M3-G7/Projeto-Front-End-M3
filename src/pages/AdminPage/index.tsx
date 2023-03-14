@@ -23,7 +23,7 @@ export const AdminPage = () => {
   }: iUserContext = useContext(UserContext);
 
   const { productsUser, userProducts } = useContext(ProductContext);
-  const [productSelect, setProductSelect] = useState<iProduct[] | []>();
+  const [productSelect, setProductSelect] = useState<iProduct>({} as iProduct);
 
   useEffect(() => {
     productsUser();
