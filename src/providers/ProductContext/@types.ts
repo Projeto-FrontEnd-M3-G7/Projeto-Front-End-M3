@@ -8,6 +8,7 @@ export interface iProduct {
   img: string;
   acquiredValue: number;
   saleValue: number;
+  quanty: number;
   category: string;
   userId: string;
   id: number;
@@ -22,6 +23,11 @@ export interface iSearchForm {
 }
 
 export interface iProductContext {
+  updateProduct: (data: iProduct) => Promise<void>;
+  deleteProduct: (id: number) => Promise<void>;
+  removeProduct: (id: number) => void;
+  productsUser: () => Promise<void>;
+  userProducts: iProduct[] | null;
   products: iProduct[] | null;
   productsShop: () => Promise<void>;
   loading: boolean;

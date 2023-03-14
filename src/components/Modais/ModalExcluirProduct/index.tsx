@@ -1,9 +1,17 @@
 import { useContext } from "react";
 import { StyledCarDiv } from "./styles";
 import { UserContext } from "../../../providers/UserContext/UserContext";
+import { iProduct } from "../../../providers/ProductContext/@types";
+import { ProductContext } from "../../../providers/ProductContext/ProductContext";
 
-export const ModalExcluirProduct = () => {
+interface iPropsExcluir {
+  productSelect: iProduct;
+}
+
+export const ModalExcluirProduct = ({ productSelect }: iPropsExcluir) => {
   const { setIsOpenModalDeleteProduct } = useContext(UserContext);
+  const { removeProduct, deleteProduct } = useContext(ProductContext);
+
   return (
     <StyledCarDiv>
       <dialog>
@@ -19,10 +27,17 @@ export const ModalExcluirProduct = () => {
         </div>
         <p>Tem certeza que deseja deletar esse produto?</p>
         <div className="boxContentProduct">
-          <p>Monitor para PC Full HD Samsung LED Curvo 27” - C27F390F</p>
+          <p>{productSelect.name}</p>
         </div>
         <div className="boxButtons">
-          <button className="deletar" type="button">
+          <button
+            className="deletar"
+            type="button"
+            onClick={() => {
+              removeProduct(productSelect.id);
+              deleteProduct(productSelect.id);
+            }}
+          >
             Deletar
           </button>
           <button

@@ -1,34 +1,29 @@
-import { CardContainer } from './style';
-import { MyProdutsCard } from '../MyProductsCard';
-import { useContext, useEffect } from 'react';
-import { ProductContext } from '../../providers/ProductContext/ProductContext';
+import { useContext, useEffect } from "react";
+import { CardContainer } from "./style";
+import { MyProdutsCard } from "../MyProductsCard";
+import { ProductContext } from "../../providers/ProductContext/ProductContext";
 import { UserContext } from '../../providers/UserContext/UserContext';
 
-interface iCardMyProductsProps {
-    userId: number;
-}
-
 export const CardMyProducts = () => {
-    const { products, productsShop } = useContext(ProductContext);
-    const { user } = useContext(UserContext);
+  const { productsUser, userProducts } = useContext(ProductContext);
+  const { user } = useContext(UserContext);
 
-    useEffect(() => {
-        productsShop();
-    }, []);
+  useEffect(() => {
+    productsUser();
+  }, []);
 
-    return (
-        <CardContainer>
-            {products === null || !user ? (
+  return (
+    <CardContainer>
+
+                  {
+                  products === null || !user ? (
                 <h1>Você ainda não tem produtos</h1>
             ) : (
-                products!.map((product) => {
-                    if (Number(product.userId) === user!.id)
-                        return (
-                            <MyProdutsCard key={product.id} product={product} />
-                        );
-                })
-            )}
-            ;
-        </CardContainer>
-    );
-};
+              userProducts?.map((product) => (
+        <MyProdutsCard key={product.id} product={product} />
+      ))
+            )
+            }
+    </CardContainer>
+  );
+}
