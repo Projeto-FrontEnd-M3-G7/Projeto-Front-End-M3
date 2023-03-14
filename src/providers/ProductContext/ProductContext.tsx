@@ -15,16 +15,16 @@ import { iUserContext } from "../UserContext/@types";
 export const ProductContext = createContext({} as iProductContext);
 
 export const ProductProvider = ({ children }: iProductContextProps) => {
-
   const [products, setProducts] = useState<iProduct[] | null>(null);
   const [categories, setCategories] = useState<[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState<iSearchForm>();
 
   const [userProducts, setUserProducts] = useState<iProduct[] | null>(null);
-   const [openModalSaibaMais, setOpenModalSaibaMais] = useState(false);
+  const [openModalSaibaMais, setOpenModalSaibaMais] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<iProduct[] | null>(
-    null)
+    null
+  );
 
   const {
     isOpenModalDeleteProduct,
@@ -39,18 +39,8 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
       : product.category
           .toLowerCase()
           .includes(search.category.toLocaleLowerCase())
+  );
 
-
-
-    const searchProducts = products?.filter((product) =>
-        search === undefined
-            ? true
-            : product.category
-                  .toLowerCase()
-                  .includes(search.category.toLocaleLowerCase())
-    );
-
-    
   const productsUser = async () => {
     const token = localStorage.getItem("@Click&Colect:TOKEN");
     const userId = localStorage.getItem("@Click&Colect:ID");
@@ -99,7 +89,7 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
 
   const updateProduct = async (formDate: iProduct) => {
     const token = localStorage.getItem("@Click&Colect:TOKEN");
-    console.log(formDate);
+
     try {
       const response = await api.patch(`/products/${formDate.id}`, formDate, {
         headers: {
@@ -126,30 +116,28 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
     }
   };
 
+  const productsShop = async () => {
+    try {
+      setLoading(true);
+      const response = await api.get("products");
+      setProducts(response.data);
+    } catch (error) {
+      const currentError = error as AxiosError<errorResponse>;
+      toast.error(currentError.response?.data.error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    const productsShop = async () => {
-        try {
-            setLoading(true);
-            const response = await api.get('products');
-            setProducts(response.data);
-        } catch (error) {
-            const currentError = error as AxiosError<errorResponse>;
-            toast.error(currentError.response?.data.error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const categoriesProducts = async () => {
-        try {
-            const response = await api.get('categories');
-            setCategories(response.data);
-        } catch (error) {
-            const currentError = error as AxiosError<errorResponse>;
-            toast.error(currentError.response?.data.error);
-        }
-    };
-    
+  const categoriesProducts = async () => {
+    try {
+      const response = await api.get("categories");
+      setCategories(response.data);
+    } catch (error) {
+      const currentError = error as AxiosError<errorResponse>;
+      toast.error(currentError.response?.data.error);
+    }
+  };
 
   return (
     <ProductContext.Provider
@@ -175,5 +163,4 @@ export const ProductProvider = ({ children }: iProductContextProps) => {
       {children}
     </ProductContext.Provider>
   );
-
 };

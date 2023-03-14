@@ -73,7 +73,7 @@ export const AdminPage = () => {
                 <div className="product-bottom">
                   <p className="product-quantity">
                     Quantidade em estoque:{" "}
-                    <strong>{product.quanty} unidades</strong>
+                    <strong>{product.quantity} unidades</strong>
                   </p>
                   <p className="product-id">id Produto: {product.id}</p>
                 </div>
