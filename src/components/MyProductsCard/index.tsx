@@ -1,3 +1,4 @@
+import { iProduct } from '../../providers/ProductContext/@types';
 import { MyCardContainer } from './style';
 
 interface iProductProps {
@@ -9,6 +10,10 @@ interface iProductProps {
     category?: string;
     userId?: number;
     id?: number;
+    price?: number | string;
+
+    key: number;
+    product: iProduct;
 }
 
 export const MyProdutsCard = ({ product }: iProductProps) => {

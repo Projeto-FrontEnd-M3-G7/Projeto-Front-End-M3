@@ -6,6 +6,7 @@ export interface iUser {
     name: string;
     age: number;
     id: number;
+    colaborador: string;
 }
 
 export interface iProvidersProps {
