@@ -54,6 +54,7 @@ export const CartProvider = ({ children }: iProvidersProps) => {
     <CartContext.Provider
       value={{
         cartProductsList,
+        setCartProductList,
         addToCart,
         valueToCart,
         modalCartIsOpen,
