@@ -1,10 +1,11 @@
+import { iValuesEditForm } from '../../components/Modais/ModalEditProfile/@types';
 import { IValuesLoginForm } from '../../components/Modais/ModalLogin/@types';
 import { iValuesRegisterForm } from '../../components/Modais/ModalRegister/@types';
 
 export interface iUser {
     email: string;
     name: string;
-    age: number;
+    age?: number;
     id: number;
     colaborador: string;
 }
@@ -28,8 +29,8 @@ export interface iUserContext {
     setIsOpenModalRegister: React.Dispatch<React.SetStateAction<boolean>>;
     userLogin: (formData: IValuesLoginForm) => Promise<void>;
     userRegister: (formData: iValuesRegisterForm) => Promise<void>;
-    userEdit: (formData: iValuesRegisterForm) => Promise<void>;
-    user: iUser | null;
+    userEdit: (formData: iValuesEditForm) => Promise<void>;
+    user: iUser;
     isOpenModalControlPanel: boolean;
     setIsOpenModalControlPanel: React.Dispatch<React.SetStateAction<boolean>>;
     isOpenModalDeleteProduct: boolean;

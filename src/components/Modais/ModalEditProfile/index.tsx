@@ -1,71 +1,69 @@
-import { StyledBoxDiv } from "../styles";
-import { Input } from "../../Input";
-import { Select } from "../../Select/styles";
-import { useContext } from "react";
-import { UserContext } from "../../../providers/UserContext/UserContext";
-import { iUser } from "../../../providers/UserContext/@types";
+import { StyledBoxDiv } from '../styles';
+import { Input } from '../../Input';
+import { Select } from '../../Select/styles';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../../providers/UserContext/UserContext';
+import { iUser } from '../../../providers/UserContext/@types';
 
-interface iValues {
-  name?: string;
-  email?: string;
-  password?: string;
-  colaborador: string;
-}
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { formSchemaEdit } from '../schemas';
+import { iValuesEditForm } from './@types';
 
 export const ModalEditProfile = () => {
-  const { user, openEdit, setOpenEdit, userEdit } = useContext(UserContext);
+    const { user, openEdit, setOpenEdit, userEdit } = useContext(UserContext);
 
-  const sendEdit = (event: any) => {
-    // event.preventDefault();
-    const value: iValues = {
-      name: event.target[0].value,
-      email: event.target[1].value,
-      password: event.target[2].value,
-      colaborador: event.target[3].value,
-    };
+    const [name, setName] = useState(user.name);
+    const [email, setEmail] = useState(user.email);
 
-    //    userEdit(value);
-    if (value.name !== "" && value.email !== "" && value.password !== "")
-      if (value.name !== "" && value.email !== "" && value.password !== "")
-        if (value.name !== "" && value.email !== "" && value.password !== "")
-          if (value.name !== "" && value.email !== "" && value.password !== "")
-            console.log(value);
-          else console.log(value.colaborador);
-    console.log(value.colaborador);
-  };
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<iValuesEditForm>({ resolver: yupResolver(formSchemaEdit) });
 
-  return (
-    <StyledBoxDiv>
-      <dialog>
-        <div className="headerModal">
-          <h2>Editar Perfil</h2>
-          <button
-            className="closeModal"
-            onClick={() => setOpenEdit(!openEdit)}
-            type="button"
-          >
-            X
-          </button>
-        </div>
-        <form className="formModal" onSubmit={(event) => sendEdit(event)}>
-          <Input
-            disabled="disabled"
-            // value={user.name}
-            placeholder="nome"
-            type="text"
-          />
+    return (
+        <StyledBoxDiv>
+            <dialog>
+                <div className="headerModal">
+                    <h2>Editar Perfil</h2>
+                    <button
+                        className="closeModal"
+                        onClick={() => setOpenEdit(!openEdit)}
+                        type="button"
+                    >
+                        X
+                    </button>
+                </div>
+                <form className="formModal" onSubmit={handleSubmit(userEdit)}>
+                    <input
+                        value={name}
+                        placeholder="nome"
+                        type="text"
+                        {...register('name')}
+                        onChange={(event) => setName(event.target.value)}
+                    />
+                    <p className="error"> {errors.name?.message} </p>
 
-          <Input placeholder="seu e-mail" type="email" />
+                    <input
+                        placeholder="seu e-mail"
+                        type="email"
+                        value={email}
+                        {...register('email')}
+                        onChange={(event) => setEmail(event.target.value)}
+                    />
 
-          <Input placeholder="nova senha" type="password" />
+                    <p className="error"> {errors.email?.message} </p>
 
-          <Select>
-            <option value="true">Deseja me tornar um vendedor</option>
-            <option value="false">Deseja ser consumidor</option>
-          </Select>
-          <button type="submit">Editar perfil</button>
-        </form>
-      </dialog>
-    </StyledBoxDiv>
-  );
+                    <select {...register('colaborador')}>
+                        <option value="true">
+                            Deseja me tornar um vendedor
+                        </option>
+                        <option value="false">Deseja ser consumidor</option>
+                    </select>
+                    <button type="submit">Editar perfil</button>
+                </form>
+            </dialog>
+        </StyledBoxDiv>
+    );
 };

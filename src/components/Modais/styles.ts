@@ -10,6 +10,38 @@ export const StyledBoxDiv = styled.div`
     background: rgba(51, 51, 51, 0.5);
     z-index: 1001;
 
+    input {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.5rem;
+
+        padding: 13px;
+
+        border: 1px solid rgba(51, 51, 51, 0.3);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    input:hover {
+        transform: scale(1.01);
+    }
+    input:focus {
+        outline: none;
+    }
+    select {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.5rem;
+
+        padding: 13px;
+
+        border: 1px solid rgba(51, 51, 51, 0.3);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    select:focus {
+        outline: none;
+    }
     .closeModal {
         background-color: transparent;
         padding: 5px;

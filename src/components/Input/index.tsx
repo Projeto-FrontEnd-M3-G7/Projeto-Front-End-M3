@@ -1,6 +1,18 @@
-import { StyledInput } from "./styles";
-import { iPropsInput } from "./@types";
+import { StyledInput } from './styles';
+import { iPropsInput } from './@types';
 
-export const Input = ({ placeholder, type, register }: iPropsInput) => (
-  <StyledInput type={type} placeholder={placeholder} {...register} />
+export const Input = ({
+    placeholder,
+    type,
+    register,
+    value,
+    onChange,
+}: iPropsInput) => (
+    <StyledInput
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        {...register}
+    />
 );
