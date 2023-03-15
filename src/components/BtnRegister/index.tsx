@@ -9,6 +9,7 @@ interface iBtnProps {
 }
 
 export const BtnRegister = ({ children, labelBtn2 }: iBtnProps) => {
+
     const navigate = useNavigate();
     const { setIsOpenModalRegister } = useContext(UserContext);
 
@@ -35,4 +36,5 @@ export const BtnRegister = ({ children, labelBtn2 }: iBtnProps) => {
             );
     }
     return <StyledBtn type="button">{children}</StyledBtn>;
+
 };

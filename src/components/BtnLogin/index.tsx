@@ -14,23 +14,23 @@ export const BtnLogin = ({ children, labelBtn1 }: iBtnProps) => {
     const { setIsOpenModalLogin } = useContext(UserContext);
 
     switch (labelBtn1) {
-        case 'Login':
-            return (
-                <StyledBtn
-                    type="button"
-                    onClick={() => {
-                        setIsOpenModalLogin(true);
-                    }}
-                >
-                    {children}
-                </StyledBtn>
-            );
-        case 'Voltar':
-            return (
-                <StyledBtn type="button" onClick={() => navigate('/shop')}>
-                    {children}
-                </StyledBtn>
-            );
+      case "Login":
+        return (
+          <StyledBtn
+            type="button"
+            onClick={() => {
+              setIsOpenModalLogin(true);
+            }}
+          >
+            {children}
+          </StyledBtn>
+        );
+      case "Voltar":
+        return (
+          <StyledBtn type="button" onClick={() => navigate("/shop")}>
+            {children}
+          </StyledBtn>
+        );
     }
 
     return <StyledBtn type="button">{children}</StyledBtn>;
