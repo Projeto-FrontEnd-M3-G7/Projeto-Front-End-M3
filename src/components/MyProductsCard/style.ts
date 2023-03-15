@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const MyCardContainer = styled.li`
+    margin: 0 auto;
     border: 1px solid;
     width: auto;
     max-width: 300px;
